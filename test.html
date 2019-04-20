@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function outer() {
+			alert(1);
+		}
+		function inner() {
+			alert(arguments.callee.caller);
+		}
+		console.log(inner);
+	</script>
+</body>
+</html>
