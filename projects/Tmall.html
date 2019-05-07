@@ -10,10 +10,11 @@
         <script src="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
         
         <style type="text/css">
-        	body{
-			    font-size:12px;
-			    font-family:Arial;
-			}
+            body{
+                font-size:12px;
+                font-family:Arial;
+                min-width:1024px;
+            }
             nav.top_outer {
             background-color: rgb(242, 242, 242);
             border-bottom:1px solid  #e7e7e7;
@@ -40,8 +41,13 @@
             }
             img#logo {
                 position: absolute;
-                left: 230px;
-                top: 30px;
+                left: 50%;
+                top: -45px;
+                transform: translateX(-190%);
+            }
+            div.search_outer {
+                position: relative;
+                margin: 0 auto;
             }
             div.searchDiv {
                 background-color: rgb(255, 0, 54);
@@ -197,10 +203,12 @@
                 z-index: -1;
             }
             div.category {
-                width: 1000px;
+                width: 960px;
                 position: absolute;
-                left: 280px;
+                /*left: 280px;*/
                 top: 204px;
+                left: 50%;
+                transform: translateX(-50%);
                 /*border: 1px solid black;*/
             }
             div.category div.categoryMenu_list {
@@ -321,20 +329,20 @@
         <!-- 搜索栏 -->
         <!-- 轮播图 -->
         <div id="carousel-outer" class="carousel slide" data-ride="carousel">
-        	<div class="headBar">
-        		<div class="head">
-        			<span class="glyphicon glyphicon-th-list"></span>
-			        <span>商品分类</span>
-        		</div>
-        		<div class="rightMenu">
-        			<span><a href="#"><img src="http://how2j.cn/tmall/img/site/chaoshi.png"></a></span>
-			        <span><a href="#"><img src="http://how2j.cn/tmall/img/site/guoji.png"></a></span>
-	                <span><a href="#">平板电视</a></span>        
-	                <span><a href="#">马桶</a></span>        
-	                <span><a href="#">沙发</a></span>        
-	                <span><a href="#">电热水器</a></span> 
-        		</div>
-        	</div>
+            <div class="headBar">
+                <div class="head">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <span>商品分类</span>
+                </div>
+                <div class="rightMenu">
+                    <span><a href="#"><img src="http://how2j.cn/tmall/img/site/chaoshi.png"></a></span>
+                    <span><a href="#"><img src="http://how2j.cn/tmall/img/site/guoji.png"></a></span>
+                    <span><a href="#">平板电视</a></span>        
+                    <span><a href="#">马桶</a></span>        
+                    <span><a href="#">沙发</a></span>        
+                    <span><a href="#">电热水器</a></span> 
+                </div>
+            </div>
 
             <!-- Indicators -->
             <ol class="carousel-indicators">
