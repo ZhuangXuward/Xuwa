@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>公共页面+轮播+分类页+产品列表</title>
+        <title>公共页面+轮播</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
@@ -150,7 +150,12 @@
             div.item img {
                 width: 100%;
             }
-
+            img.catEar {
+                position: absolute;
+                top: 159px;
+                width: 30px;
+                display: none;
+            }
             div#carousel-outer {
                 width: 1000px;
                 margin: 20px auto;
@@ -353,6 +358,20 @@
                     var cid_temp = $(this).attr("cid");
                     $("div.categoryContent[cid="+cid_temp+"]").hide();
                 });
+
+                $("div.headBar div.rightMenu span").mouseover(function() {
+                    var pos_left = $(this).position().left;
+                    var width_menu = $(this).css("width");
+                    var pos_Left = parseInt(pos_left) + parseInt(width_menu)/2;
+                    // 注意为$(this)而不是this
+                    $("img.catEar").css({
+                        left: pos_Left+246,
+                    });
+                    $("img.catEar").fadeIn(350);
+                });
+                $("div.headBar div.rightMenu span").mouseout(function() {
+                    $("img.catEar").css("display", "none");
+                });
             });
         </script>
     </head>
@@ -397,6 +416,7 @@
         <!-- 搜索栏结束 -->
 
         <!-- 轮播图开始 -->
+        <img src="http://how2j.cn/tmall/img/site/catear.png" class="catEar">
         <div id="carousel-outer" class="carousel slide" data-ride="carousel">
             <div class="headBar">
                 <div class="head">
@@ -404,6 +424,7 @@
                     <span>商品分类</span>
                 </div>
                 <div class="rightMenu">
+                    <!-- 图片加上span方便后面猫耳朵效果 -->
                     <span><a href="#"><img src="http://how2j.cn/tmall/img/site/chaoshi.png"></a></span>
                     <span><a href="#"><img src="http://how2j.cn/tmall/img/site/guoji.png"></a></span>
                     <span><a href="#">平板电视</a></span>        
@@ -907,6 +928,7 @@
             <img src="http://how2j.cn/tmall/img/site/end.png" class="endPng">
         </div>
         <!-- 产品列表结束 -->
+
 
         <!-- 页脚开始 -->
         <footer>
