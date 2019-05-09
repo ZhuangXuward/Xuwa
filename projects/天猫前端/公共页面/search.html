@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>搜索栏</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		body{
+		    font-size:12px;
+		    font-family:Arial;
+		}
+		img#logo {
+			position: absolute;
+			left: 230px;
+			top: 30px;
+		}
+		div.searchDiv {
+			background-color: #C40000;
+		    width: 400px;
+		    margin: 50px auto;
+		    padding: 1px;
+		    height: 40px;
+		}
+		div.searchDiv input {
+			outline: none;
+			width: 275px;
+			height: 36px;
+			margin: 1px;
+			border: 1px solid transparent;
+		}
+		div.searchDiv button {
+			background-color: #C40000;
+			border: 1px solid transparent;
+			color: white;
+			font-weight: bold;
+			font-size: 20px;
+			width: 110px;
+		}
+		div.searchBelow span, div.searchBelow a {
+			color: rgb(134, 134, 134);
+			display: inline-block;
+			margin-top: -17px;
+		}
+		div.searchBelow>span>span {
+			margin: 20px;
+		}
+		div.searchBelow a:hover {
+			color: #C40000;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="search_outer">
+		<a href="#">
+			<img id="logo" src="http://how2j.cn/tmall/img/site/logo.gif" />
+		</a>
+		<div class="searchDiv">
+			<input type="text" name="keyword" placeholder="JavaScript高级程序设计">
+			<button type="submit" >搜索</button>
+			<div class="searchBelow">
+				<span><a href="#">鼠标</a><span>|</span></span>
+				<span><a href="#">显示屏</a><span>|</span></span>
+				<span><a href="#">手机</a><span>|</span></span>
+				<span><a href="#">电脑</a></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

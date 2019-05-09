@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>导航栏</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		body{
+		    font-size:12px;
+		    font-family:Arial;
+		}
+		nav.top_outer {
+			background-color: rgb(242, 242, 242);
+		    border-bottom:1px solid  #e7e7e7;
+		}
+		nav div.top {
+			margin: 0 auto;
+			width: 1000px;
+			padding-top: 5px;
+		    padding-bottom: 5px;
+		}
+		nav div.top a, nav div.top span {
+			color: rgb(156, 155, 154);
+			margin: 0 10px;
+		}
+		nav div.top a:hover {
+			text-decoration: none;
+			color: rgb(196, 0, 0);
+		}
+		.redColor {
+			color: rgb(196, 0, 0) !important;
+		}
+		.reverse {
+			transform: rotateY(180deg); /*原来的购物车图标方向向左，改成向右*/
+		}
+	</style>
+</head>
+<body>
+	<nav class="top_outer">
+		<div class="top">
+			<a href="#">
+				<span class="glyphicon glyphicon-home redColor"></span>
+				天猫首页
+			</a>
+			<span>喵，欢迎来到天猫</span>
+			<a href="#">请登录</a>
+			<a href="#">免费注册</a>
+			<span class="pull-right">
+				<a href="#">我的订单</a>
+				<a href="#">
+					<span class="glyphicon glyphicon-shopping-cart redColor reverse"></span>
+					购物车<strong>0</strong>件
+				</a>
+			</span>
+		</div>
+	</nav>
+</body>
+</html>

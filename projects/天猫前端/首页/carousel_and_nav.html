@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>轮播+导航栏</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        
+        <style type="text/css">
+        	body{
+        	    font-size:12px;
+        	    font-family:Arial;
+        	}
+            div.item img {
+                width: 100%;
+            }
+
+            div#carousel-outer {
+                width: 1000px;
+                margin: 20px auto;
+            }
+            div.headBar {
+            	background-color: rgb(221, 39, 39);
+            }
+            div.headBar div.head {
+            	display: inline-block;
+            	width: 200px;
+            	height: 36px;
+            	line-height: 36px;
+            	font-weight: bold; 
+            	font-size: 16px;
+            	margin:0 20px; 
+            	color: white;
+            	background-color: #C60A0A;
+            	padding-left: 10px;
+            }
+            div.headBar div.rightMenu {
+            	display: inline-block;
+            }
+            div.headBar div.rightMenu img {
+            	height: 30px;
+            }
+            div.headBar div.rightMenu span {
+            	margin-right: 40px;
+            }
+            div.headBar div.rightMenu span a {
+            	color: white;
+            	font-size: 16px;
+            	text-decoration: none;
+            }
+            div.headBar div.rightMenu img#tmall {
+            	display: inline;
+            	width: 50%;
+            }
+            div#headBar_fill {
+            	position: relative;
+            	width: 100%;
+            	height: 36.5px;
+            	background-color: rgb(221, 39, 39);
+            	top: -480px;
+            	z-index: -1;
+            }
+            div#carousel_fill {
+            	position: relative;
+            	width: 100%;
+            	height: 428px;
+            	background-color: rgb(232, 232, 232);
+            	top: -480px;
+            	z-index: -1;
+            }
+            div.category {
+                width: 1000px;
+                position: absolute;
+                left: 280px;
+                top: 56px;
+                /*border: 1px solid black;*/
+            }
+            div.category div.categoryMenu_list {
+                width: 200px;
+                line-height: 20px;
+                /*border: 1px solid red;*/
+                padding: 5px;
+                padding-left: 8px;
+                font-size: 13px;
+                background-color: rgb(226, 226, 227);
+            }
+            div.category div.categoryMenu_list a {
+                margin-left: 5px;
+                color: black;
+            }
+            div.category div.categoryMenu_list:hover {
+                background-color: white;
+            }
+            div.category div.categoryMenu_list:hover a {
+                text-decoration: none;
+                color: rgb(135, 206, 250);
+            }
+            div.category div.categoryContent {
+                position: absolute;
+                top: 0px;
+                left: 200px;
+                font-size: 13px;
+                width: 800px;
+                height: 430px;
+                /*padding-top: 15px;*/
+                padding-left: 100px;
+                background-color: white;
+                z-index: 99;
+                display: none;
+            }
+            div.category div.categoryContent div.row {
+                width: 650px;
+                line-height: 50px;
+                border-bottom: 1px dashed lightgray;
+            }
+            div.category div.categoryContent div.row a {
+                color: rgb(165, 165, 165);
+                margin: 8px;
+            }
+            div.category div.categoryContent div.row a:nth-child(even) {
+                color: rgb(135, 206, 250);
+            }
+            div.category div.categoryContent div.row a:hover {
+                text-decoration: none;
+                color: rgb(209, 55, 55);
+            }
+        </style>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // 鼠标移到分类标签上，显示分类页内容
+                $("div.category div.categoryMenu_list").mouseover(function() {
+                    var cid_temp = $(this).attr("cid");
+                    cid_temp = cid_temp%4 + 87;
+                    // 总共14个list，由于懒的原因...用4个分类内容循环表示
+                    $("div.categoryContent[cid="+cid_temp+"]").show();
+                });
+                // 鼠标移开分类标签，隐藏分类页内容
+                $("div.category div.categoryMenu_list").mouseout(function() {
+                    var cid_temp = $(this).attr("cid");
+                    cid_temp = cid_temp%4 + 87;
+                    $("div.categoryContent[cid="+cid_temp+"]").hide();
+                });
+                // 鼠标移到分类内容上，持续显示
+                $("div.categoryContent").mouseover(function() {
+                    var cid_temp = $(this).attr("cid");
+                    $("div.categoryContent[cid="+cid_temp+"]").show();
+                });
+                // 鼠标移开分类内容，隐藏分类页内容
+                $("div.categoryContent").mouseout(function() {
+                    var cid_temp = $(this).attr("cid");
+                    $("div.categoryContent[cid="+cid_temp+"]").hide();
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <div id="carousel-outer" class="carousel slide" data-ride="carousel">
+        	<div class="headBar">
+        		<div class="head">
+        			<span class="glyphicon glyphicon-th-list"></span>
+    		        <span>商品分类</span>
+        		</div>
+        		<div class="rightMenu">
+        			<span><a href="#"><img src="http://how2j.cn/tmall/img/site/chaoshi.png"></a></span>
+    		        <span><a href="#"><img src="http://how2j.cn/tmall/img/site/guoji.png"></a></span>
+                    <span><a href="#">平板电视</a></span>        
+                    <span><a href="#">马桶</a></span>        
+                    <span><a href="#">沙发</a></span>        
+                    <span><a href="#">电热水器</a></span> 
+        		</div>
+        	</div>
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-outer" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-outer" data-slide-to="1"></li>
+                <li data-target="#carousel-outer" data-slide-to="2"></li>
+                <li data-target="#carousel-outer" data-slide-to="3"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/lunbo/1.jpg"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/lunbo/2.jpg"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/lunbo/3.jpg"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/lunbo/4.jpg"></a>
+                </div>
+            </div>
+            
+        </div>
+        <!-- 轮播图颜色填充 -->
+        <div id="headBar_fill"></div>
+        <div id="carousel_fill"></div>
+        <!-- 轮播图颜色填充 -->
+
+        <!-- 分类页 -->
+        <div class="category">
+            <!-- 分类页内左边菜单 -->
+            <div class="categoryMenu">
+                <div class="categoryMenu_list" cid = "90">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">平板电视</a>
+                </div>
+                <div class="categoryMenu_list" cid = "89">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">马桶</a>
+                </div>
+                <div class="categoryMenu_list" cid = "88">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">沙发</a>
+                </div>
+                <div class="categoryMenu_list" cid = "87">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">电热水器</a>
+                </div>
+                <div class="categoryMenu_list" cid = "86">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">平衡车</a>
+                </div>
+                <div class="categoryMenu_list" cid = "85">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">扫地机器人</a>
+                </div>
+                <div class="categoryMenu_list" cid = "84">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">果汁机</a>
+                </div>
+                <div class="categoryMenu_list" cid = "83">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">冰箱</a>
+                </div>
+                <div class="categoryMenu_list" cid = "82">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">空调</a>
+                </div>
+                <div class="categoryMenu_list" cid = "81">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">女表</a>
+                </div>
+                <div class="categoryMenu_list" cid = "80">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">男表</a>
+                </div>
+                <div class="categoryMenu_list" cid = "79">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">男士手提包</a>
+                </div>
+                <div class="categoryMenu_list" cid = "78">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">男士西服</a>
+                </div>
+                <div class="categoryMenu_list" cid = "77">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">太阳眼镜</a>
+                </div>
+            </div>
+            <!-- 分类页内左边菜单 -->
+
+            <!-- 分类页内容 -->
+            <div class="categoryContent" cid = "90">
+                <div class="row">    
+                    <a href="#">大影院</a>
+                    <a href="#">周末</a>
+                    <a href="#">新品特惠</a>
+                    <a href="#">32吋电视机</a>
+                    <a href="#">智能网络</a>
+                </div>
+                <div class="row">    
+                    <a href="#">USB高清解</a>
+                    <a href="#">芒果TV在线</a>
+                    <a href="#">抢购价</a>
+                    <a href="#">USB解码</a>
+                    <a href="#">32英吋</a>
+                    <a href="#">10核</a>
+                    <a href="#">TCL品牌日</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">要赠品</a>
+                    <a href="#">新品上市</a>
+                    <a href="#">4K硬屏</a>
+                    <a href="#">领100元券</a>
+                    <a href="#">智能高清</a>
+                    <a href="#">8月，酷暑</a>
+                    <a href="#">8月大促</a>
+                    <a href="#">天猫定制</a>
+                </div>
+                <div class="row">     
+                    <a href="#">智能操作系统</a>
+                    <a href="#">金色外观</a>
+                    <a href="#">三星屏幕</a>
+                    <a href="#">客厅爆款</a>
+                    <a href="#">八核配置</a>
+                    <a href="#">限时特惠</a>
+                </div>
+                <div class="row">  
+                    <a href="#">限时特惠</a>
+                    <a href="#">热销爆款</a>
+                    <a href="#">4K全高清</a>
+                    <a href="#">六核智能</a>
+                    <a href="#">14核4K</a>
+                    <a href="#">YUNOS</a>
+                    <a href="#">64位处理器</a>
+                </div>
+                <div class="row">   
+                    <a href="#">UNOS</a>
+                    <a href="#">微信电视</a>
+                    <a href="#">4k超清</a>
+                    <a href="#">64位真4K</a>
+                    <a href="#">10核机芯</a>
+                    <a href="#">V字黑釉底座</a>
+                    <a href="#">4K超清</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">64位14核</a>
+                    <a href="#">海量影视</a>
+                    <a href="#">人气爆款</a>
+                    <a href="#">限时特惠</a>
+                    <a href="#">真4K屏</a>
+                    <a href="#">65吋巨屏</a>
+                    <a href="#">4K超清视界</a>
+                    <a href="#">限时特惠</a>
+                </div>
+                <div class="row">   
+                    <a href="#">6寸旗舰</a>
+                    <a href="#">4K机皇</a>
+                    <a href="#">曲面机皇</a>
+                    <a href="#">轻薄4K</a>
+                </div>
+            </div>
+            <div class="categoryContent" cid = "89">
+                <div class="row">    
+                    <a href="#">高性价比</a>
+                    <a href="#">纳米自洁釉</a>
+                    <a href="#">盖板易拆</a>
+                    <a href="#">领券更优惠</a>
+                    <a href="#">全国联保</a>
+                    <a href="#">咨询大惊喜</a>
+                </div>
+                <div class="row">  
+                    <a href="#">全自动感应</a>
+                    <a href="#">即热式功能</a>
+                    <a href="#">智能护理</a>
+                    <a href="#">官方正品</a>
+                    <a href="#">高效节水</a>
+                    <a href="#">立减300</a>
+                    <a href="#">官方正品</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">3秒速冲</a>
+                    <a href="#">送角阀软管</a>
+                    <a href="#">送角阀软管</a>
+                    <a href="#">12大中心仓</a>
+                    <a href="#">12大中心仓</a>
+                    <a href="#">8月，酷暑</a>
+                    <a href="#">蹲坐两用</a>
+                </div>
+                <div class="row">    
+                    <a href="#">德国品牌</a>
+                    <a href="#">加购收藏</a>
+                    <a href="#">加长型缸体</a>
+                    <a href="#">喷射虹吸</a>
+                    <a href="#">家装狂欢节</a>
+                    <a href="#">AB1287</a>
+                    <a href="#">领券再减</a>
+                    <a href="#">千城入户</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">强劲冲力</a>
+                    <a href="#">包安装</a>
+                    <a href="#">土豪直接付款</a>
+                    <a href="#">咨询在线客服</a>
+                    <a href="#">赠送原厂配件</a>
+                    <a href="#">新聚汇</a>
+                    <a href="#">吸力哥</a>
+                    <a href="#">九牧正品</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">覆盖区域内</a>
+                    <a href="#">指定1800</a>
+                    <a href="#">晒图返10元</a>
+                    <a href="#">1300城免</a>
+                    <a href="#">久坐舒适</a>
+                    <a href="#">晒图送20元</a>
+                    <a href="#">摩普智能马桶</a>
+                    <a href="#">双杆喷头</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">送空调扇</a>
+                    <a href="#">咨询大惊喜</a>
+                    <a href="#">节水小管家</a>
+                    <a href="#">高端大气</a>
+                    <a href="#">科勒授权</a>
+                    <a href="#">超旋风系列</a>
+                    <a href="#">限时升级</a>
+                </div>
+                <div class="row">   
+                    <a href="#">立减55</a>
+                    <a href="#">皇家体验</a>
+                    <a href="#">法恩莎正品</a>
+                    <a href="#">大仓销售</a>
+                </div>
+            </div>
+            <div class="categoryContent" cid = "88">
+                <div class="row">    
+                    <a href="#">热卖推荐</a>
+                    <a href="#">高档户型客厅</a>
+                    <a href="#">16CM坐垫</a>
+                    <a href="#">匠心独运</a>
+                    <a href="#">大小户型沙发</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">8.23预售</a>
+                    <a href="#">热销爆款</a>
+                    <a href="#">高档进口牛皮</a>
+                    <a href="#">三位可躺</a>
+                    <a href="#">北美进口橡木</a>
+                    <a href="#">全香樟实木</a>
+                    <a href="#">厂家直销</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">可拆洗</a>
+                    <a href="#">4级抗污</a>
+                    <a href="#">多功能</a>
+                    <a href="#">全实木雕刻</a>
+                    <a href="#">3D玛雅绒</a>
+                    <a href="#">北美橡木</a>
+                    <a href="#">防水防污</a>
+                    <a href="#">都市转角户型</a>
+                </div>
+                <div class="row">   
+                    <a href="#">多功能扶手</a>
+                    <a href="#">彼爱专利产品</a>
+                    <a href="#">国际设计师</a>
+                    <a href="#">进口头层牛皮</a>
+                    <a href="#">经典爆款</a>
+                    <a href="#">可拆洗设计</a>
+                    <a href="#">优质棉麻面料</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">高档超柔绒布</a>
+                    <a href="#">进口橡木框架</a>
+                    <a href="#">欧洲白蜡木</a>
+                    <a href="#">北美黑胡桃</a>
+                    <a href="#">质保3年</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">8.29零点</a>
+                    <a href="#">头层牛皮</a>
+                    <a href="#">实木雕花</a>
+                    <a href="#">全拆洗</a>
+                    <a href="#">大师设计</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">20-22号</a>
+                    <a href="#">北美黑胡桃</a>
+                    <a href="#">泰国进口实木</a>
+                    <a href="#">高端大气</a>
+                    <a href="#">22聚价</a>
+                    <a href="#">品质保证</a>
+                    <a href="#">限时升级</a>
+                    <a href="#">优质绒布</a>
+                </div>
+            </div>
+            <div class="categoryContent" cid = "87">
+                <div class="row">    
+                    <a href="#">机控遥控</a>
+                    <a href="#">搪瓷超强内胆</a>
+                    <a href="#">阿里智能</a>
+                    <a href="#">3D速热</a>
+                    <a href="#">热水器狂欢</a>
+                    <a href="#">3D动态加热</a>
+                    <a href="#">金圭经典</a>
+                    <a href="#">一级能效</a>
+                </div>
+                <div class="row">  
+                    <a href="#">三档功率可调</a>
+                    <a href="#">送双立人刀</a>
+                    <a href="#">全胆半胆加热</a>
+                    <a href="#">爆款低价购</a>
+                    <a href="#">4倍迅热增容</a>
+                    <a href="#">阿里智能</a>
+                    <a href="#">5昼夜保温</a>
+                </div>
+                <div class="row">
+                    <a href="#">官方正品</a>
+                    <a href="#">5昼夜保温</a>
+                    <a href="#">3KW速热</a>
+                    <a href="#">立减200</a>
+                    <a href="#">全国服务热线</a>
+                    <a href="#">8月26日</a>
+                    <a href="#">全国服务热线</a>
+                    <a href="#">wifi智能</a>
+                </div>
+                <div class="row">  
+                    <a href="#">新品抢鲜购</a>
+                    <a href="#">新品上市</a>
+                    <a href="#">26号10点</a>
+                    <a href="#">最后一天</a>
+                    <a href="#">美的自营</a>
+                    <a href="#">限时48小时</a>
+                    <a href="#">准时预约</a>
+                    <a href="#">官方正品</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">全国服务热线</a>
+                    <a href="#">嗨爆8月</a>
+                    <a href="#">高温抑菌</a>
+                    <a href="#">三档功率可调</a>
+                    <a href="#">全网爆款</a>
+                    <a href="#">以旧换新</a>
+                    <a href="#">8月暑促</a>
+                </div>
+                <div class="row">
+                    <a href="#">整机8年保修</a>
+                    <a href="#">准时预约</a>
+                    <a href="#">WIFI智控</a>
+                    <a href="#">狂欢疯抢</a>
+                    <a href="#">疯抢48小时</a>
+                    <a href="#">晒图送20元</a>
+                    <a href="#">8年包修</a>
+                    <a href="#">每日前100</a>
+                    <a href="#">8月26号</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">每日前50</a>
+                    <a href="#">每日前80</a>
+                    <a href="#">高端大气</a>
+                    <a href="#">科勒授权</a>
+                    <a href="#">超旋风系列</a>
+                    <a href="#">限时升级</a>
+                </div>
+            </div>
+            <!-- 分类页内容 -->
+        </div>
+        <!-- 分类页 -->
+
+    </body>
+</html>

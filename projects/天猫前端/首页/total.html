@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>公共页面+轮播+产品列表+登录界面</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        
+        <style type="text/css">
+        	body{
+			    font-size:12px;
+			    font-family:Arial;
+                min-width:1020px;
+			}
+            nav.top_outer {
+            background-color: rgb(242, 242, 242);
+            border-bottom:1px solid  #e7e7e7;
+            }
+            nav div.top {
+                margin: 0 auto;
+                width: 1027px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            nav div.top a, nav div.top span {
+                color: rgb(156, 155, 154);
+                margin: 0 10px;
+            }
+            nav div.top a:hover {
+                text-decoration: none;
+                color: rgb(196, 0, 0);
+            }
+            .redColor {
+                color: rgb(196, 0, 0) !important;
+            }
+            .reverse {
+                transform: rotateY(180deg); /*原来的购物车图标方向向左，改成向右*/
+            }
+            img#logo {
+                position: absolute;
+                left: 50%;
+                top: -45px;
+                transform: translateX(-190%);
+            }
+            div.search_outer {
+                position: relative;
+                margin: 0 auto;
+            }
+            div.searchDiv {
+                background-color: rgb(255, 0, 54);
+                width: 400px;
+                margin: 50px auto;
+                padding: 1px;
+                height: 40px;
+            }
+            div.searchDiv input {
+                outline: none;
+                width: 275px;
+                height: 36px;
+                margin: 1px;
+                border: 1px solid transparent;
+            }
+            div.searchDiv button {
+                background-color: rgb(255, 0, 54);
+                border: 1px solid transparent;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                width: 110px;
+            }
+            div.searchBelow span, div.searchBelow a {
+                color: rgb(134, 134, 134);
+                display: inline-block;
+                margin-top: -17px;
+            }
+            div.searchBelow>span>span {
+                margin: 20px;
+            }
+            div.searchBelow a:hover {
+                color: #C40000;
+                text-decoration: none;
+            }
+            footer {/*
+                position: relative;
+                margin-top: -400px;*/
+                border-top: 1px solid rgb(231, 231, 231);
+            }
+            div.footerImg {
+                text-align: center;
+                padding: 20px;
+                border-bottom: 1px solid rgb(231, 231, 231);
+                margin: 0 auto;
+            }
+            div.footerMid {
+                padding: 30px 10px;
+                width: 1007px;
+                margin: 0 auto;
+            }
+            div.mid_column {
+                float: left;
+                width: 220px; 
+                top: 100px;
+            }
+            div.mid_column a {
+                display: block;
+                padding-top: 3px;
+                color:#999;
+            }
+            div.mid_column span.mid_column_title, div.mid_img span.mid_column_title {
+                color: #646464;
+                font-weight: bold;
+                font-size: 16px;
+            }
+            div.mid_column a:hover {
+                text-decoration:none;
+                color: #C40000;
+            }
+            div.footerLogo {
+                margin: 0 auto;
+                width: 1007px;
+            }
+            div.footerBelow_outer {
+                border-top: 2px solid rgb(196, 0, 0);
+                background-color: black;
+            }
+            div.footerBelow {
+                margin: 0 auto;
+                width: 1007px;
+                padding: 5px;
+            }
+            div.footerBelow .whiteLink a, div.footerBelow .whiteLink span {
+                color: white;
+                padding-right: 5px;
+            }
+            div.footerBelow .whiteLink, div.footerBelow .license {
+                padding: 5px 0 10px 5px;
+            }
+            div.footerBelow .license span {
+                color: rgb(151, 152, 156);
+            }
+            div.footerBelow .license div {
+                padding: 10px 0 5px 0;
+            }
+            div.footerBelow .whiteLink a:hover {
+                text-decoration: none;
+            }
+            div.item img {
+                width: 100%;
+            }
+            img.catEar {
+                position: absolute;
+                top: 159px;
+                width: 30px;
+                display: none;
+            }
+            div#carousel-outer {
+                width: 1000px;
+                margin: 20px auto;
+            }
+            div.headBar {
+                background-color: rgb(221, 39, 39);
+            }
+            div.headBar div.head {
+                display: inline-block;
+                width: 200px;
+                height: 36px;
+                line-height: 36px;
+                font-weight: bold; 
+                font-size: 16px;
+                margin:0 20px 0 0px; 
+                color: white;
+                background-color: #C60A0A;
+                padding-left: 10px;
+            }
+            div.headBar div.rightMenu {
+                display: inline-block;
+            }
+            div.headBar div.rightMenu img {
+                height: 30px;
+            }
+            div.headBar div.rightMenu span {
+                margin-right: 40px;
+            }
+            div.headBar div.rightMenu span a {
+                color: white;
+                font-size: 16px;
+                text-decoration: none;
+            }
+            div.headBar div.rightMenu img#tmall {
+                display: inline;
+                width: 50%;
+            }
+            div#headBar_fill {
+                position: relative;
+                width: 100%;
+                height: 36.5px;
+                background-color: rgb(221, 39, 39);
+                top: -480px;
+                z-index: -1;
+            }
+            div#carousel_fill {
+                position: relative;
+                width: 100%;
+                height: 428px;
+                background-color: rgb(232, 232, 232);
+                top: -480px;
+                z-index: -1;
+            }
+            div.category {
+                width: 1000px;
+                /*position: absolute;
+                top: 204px;
+                left: 48.7%;
+                transform: translateX(-50%);*/
+                position: relative;
+                margin: 0 auto;
+                top: -908px;
+                /*尽量使得outer框为relative，若使用absolute脱离文档流则会出现缩放移位问题*/
+            }
+            div.category div.categoryMenu_list {
+                width: 200px;
+                line-height: 20px;
+                /*border: 1px solid red;*/
+                padding: 5px;
+                padding-left: 8px;
+                font-size: 13px;
+                background-color: rgb(226, 226, 227);
+            }
+            div.category div.categoryMenu_list a {
+                margin-left: 5px;
+                color: black;
+            }
+            div.category div.categoryMenu_list:hover {
+                background-color: white;
+            }
+            div.category div.categoryMenu_list:hover a {
+                text-decoration: none;
+                color: rgb(135, 206, 250);
+            }
+            div.category div.categoryContent {
+                position: absolute;
+                top: 0px;
+                left: 200px;
+                font-size: 13px;
+                width: 800px;
+                height: 430px;
+                /*padding-top: 15px;*/
+                padding-left: 100px;
+                background-color: white;
+                z-index: 99;
+                display: none;
+            }
+            div.category div.categoryContent div.row {
+                width: 650px;
+                line-height: 50px;
+                border-bottom: 1px dashed lightgray;
+            }
+            div.category div.categoryContent div.row a {
+                color: rgb(165, 165, 165);
+                margin: 8px;
+            }
+            div.category div.categoryContent div.row a:nth-child(even) {
+                color: rgb(135, 206, 250);
+            }
+            div.category div.categoryContent div.row a:hover {
+                text-decoration: none;
+                color: rgb(209, 55, 55);
+            }
+            div.categoryProducts_outer {
+                position: relative;
+                width: 1010px;
+                top: -890px;
+                margin: 0 auto;
+                padding: 15px 0px;
+                background-color: rgb(245, 245, 245);
+            }
+            div.eachCategoryProducts {
+                position: relative;
+                margin-top: 30px;
+            }
+            div.eachCategoryProducts div.leftMark {
+                width: 4px;
+                height: 20px;
+                background-color: rgb(25, 200, 169);
+                display: inline-block;
+                margin: 15px 10px;
+
+            } 
+            div.eachCategoryProducts span.eachCategoryTitle {
+                font-size: 15px;
+                font-weight: bold;
+                color: rgb(107, 100, 100);
+                position: absolute;
+                top: 15px;
+            }
+            div.eachCategoryProducts div.clear {
+                clear: both;
+            }
+            div.eachCategoryProducts div.productsItem {
+                width: 190px;
+                background-color: white;
+                padding-bottom: 15px;
+                float: left;
+                margin-left: 10px; 
+            }
+            div.eachCategoryProducts div.productsItem a.productsItemDesc {
+                display: inline-block;
+                margin: 15px 10px 10px 10px;
+                color: gray;
+                text-decoration: none;
+            }
+            div.eachCategoryProducts div.productsItem span.productsItemPrice {
+                margin-left: 10px;
+                font-size: 15px;
+                color: red;
+            }
+            div.categoryProducts_outer img.endPng {
+                display: inline-block;
+                width: 100px;
+                position: relative;
+                margin-top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            div.eachCategoryProducts div.productsItem:hover {
+                outline: 0.5px solid red;
+                /*不使用border，border会破坏水平布局*/
+            }
+            div.eachCategoryProducts div.productsItem img:hover {
+                opacity: 0.7;
+            }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // 鼠标移到分类标签上，显示分类页内容
+                $("div.category div.categoryMenu_list").mouseover(function() {
+                    var cid_temp = $(this).attr("cid");
+                    cid_temp = cid_temp%4 + 87;
+                    // 总共14个list，由于懒的原因...用4个分类内容循环表示
+                    $("div.categoryContent[cid="+cid_temp+"]").show();
+                });
+                // 鼠标移开分类标签，隐藏分类页内容
+                $("div.category div.categoryMenu_list").mouseout(function() {
+                    var cid_temp = $(this).attr("cid");
+                    cid_temp = cid_temp%4 + 87;
+                    $("div.categoryContent[cid="+cid_temp+"]").hide();
+                });
+                // 鼠标移到分类内容上，持续显示
+                $("div.categoryContent").mouseover(function() {
+                    var cid_temp = $(this).attr("cid");
+                    $("div.categoryContent[cid="+cid_temp+"]").show();
+                });
+                // 鼠标移开分类内容，隐藏分类页内容
+                $("div.categoryContent").mouseout(function() {
+                    var cid_temp = $(this).attr("cid");
+                    $("div.categoryContent[cid="+cid_temp+"]").hide();
+                });
+
+                // 显示和隐藏猫耳朵
+                $("div.headBar div.rightMenu span").mouseover(function() {
+                    var pos_left = $(this).position().left;
+                    var width_menu = $(this).css("width");
+                    var pos_Left = parseInt(pos_left) + parseInt(width_menu)/2;
+                    // 注意为$(this)而不是this
+                    $("img.catEar").css({
+                        left: pos_Left+246,
+                    });
+                    $("img.catEar").fadeIn(350);
+                });
+                $("div.headBar div.rightMenu span").mouseout(function() {
+                    $("img.catEar").css("display", "none");
+                    // 由于使用了绝对定位，使用fadeOut会有偏移
+                });
+                $("footer a").click(function() {
+                    alert("纯前端实现，没有实际链接！");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <!-- 导航栏开始 -->
+        <nav class="top_outer">
+            <div class="top">
+                <a href="#">
+                    <span class="glyphicon glyphicon-home redColor"></span>
+                    天猫首页
+                </a>
+                <span>喵，欢迎来到天猫</span>
+                <a href="../登录界面/login.html">请登录</a>
+                <a href="#">免费注册</a>
+                <span class="pull-right">
+                    <a href="#">我的订单</a>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-shopping-cart redColor reverse"></span>
+                        购物车<strong>0</strong>件
+                    </a>
+                </span>
+            </div>
+        </nav>
+        <!-- 导航栏结束 -->
+
+        <!-- 搜索栏开始 -->
+        <div class="search_outer">
+            <a href="#">
+                <img id="logo" src="http://how2j.cn/tmall/img/site/logo.gif" />
+            </a>
+            <div class="searchDiv">
+                <input type="text" name="keyword" placeholder="JavaScript高级程序设计">
+                <button type="submit" >搜索</button>
+                <div class="searchBelow">
+                    <span><a href="#">鼠标</a><span>|</span></span>
+                    <span><a href="#">显示屏</a><span>|</span></span>
+                    <span><a href="#">手机</a><span>|</span></span>
+                    <span><a href="#">电脑</a></span>
+                </div>
+            </div>
+        </div>
+        <!-- 搜索栏结束 -->
+
+        <!-- 轮播图开始 -->
+        <img src="http://how2j.cn/tmall/img/site/catear.png" class="catEar">
+        <div id="carousel-outer" class="carousel slide" data-ride="carousel">
+        	<div class="headBar">
+        		<div class="head">
+        			<span class="glyphicon glyphicon-th-list"></span>
+			        <span>商品分类</span>
+        		</div>
+        		<div class="rightMenu">
+                    <!-- 图片加上span方便后面猫耳朵效果 -->
+        			<span><a href="#"><img src="http://how2j.cn/tmall/img/site/chaoshi.png"></a></span>
+			        <span><a href="#"><img src="http://how2j.cn/tmall/img/site/guoji.png"></a></span>
+	                <span><a href="#">平板电视</a></span>        
+	                <span><a href="#">马桶</a></span>        
+	                <span><a href="#">沙发</a></span>        
+	                <span><a href="#">电热水器</a></span> 
+        		</div>
+        	</div>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-outer" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-outer" data-slide-to="1"></li>
+                <li data-target="#carousel-outer" data-slide-to="2"></li>
+                <li data-target="#carousel-outer" data-slide-to="3"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/lunbo/1.jpg"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/lunbo/2.jpg"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/lunbo/3.jpg"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/lunbo/4.jpg"></a>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播图颜色填充 -->
+        <div id="headBar_fill"></div>
+        <div id="carousel_fill"></div>
+        <!-- 轮播图颜色填充 -->
+        <!-- 轮播图结束 -->
+
+        <!-- 分类页开始 -->
+        <div class="category">
+            <!-- 分类页内左边菜单 -->
+            <div class="categoryMenu">
+                <div class="categoryMenu_list" cid = "90">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">平板电视</a>
+                </div>
+                <div class="categoryMenu_list" cid = "89">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">马桶</a>
+                </div>
+                <div class="categoryMenu_list" cid = "88">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">沙发</a>
+                </div>
+                <div class="categoryMenu_list" cid = "87">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">电热水器</a>
+                </div>
+                <div class="categoryMenu_list" cid = "86">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">平衡车</a>
+                </div>
+                <div class="categoryMenu_list" cid = "85">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">扫地机器人</a>
+                </div>
+                <div class="categoryMenu_list" cid = "84">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">果汁机</a>
+                </div>
+                <div class="categoryMenu_list" cid = "83">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">冰箱</a>
+                </div>
+                <div class="categoryMenu_list" cid = "82">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">空调</a>
+                </div>
+                <div class="categoryMenu_list" cid = "81">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">女表</a>
+                </div>
+                <div class="categoryMenu_list" cid = "80">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">男表</a>
+                </div>
+                <div class="categoryMenu_list" cid = "79">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">男士手提包</a>
+                </div>
+                <div class="categoryMenu_list" cid = "78">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">男士西服</a>
+                </div>
+                <div class="categoryMenu_list" cid = "77">
+                    <span class="glyphicon glyphicon-link"></span>
+                    <a href="#">太阳眼镜</a>
+                </div>
+            </div>
+            <!-- 分类页内左边菜单 -->
+
+            <!-- 分类页内容 -->
+            <div class="categoryContent" cid = "90">
+                <div class="row">    
+                    <a href="#">大影院</a>
+                    <a href="#">周末</a>
+                    <a href="#">新品特惠</a>
+                    <a href="#">32吋电视机</a>
+                    <a href="#">智能网络</a>
+                </div>
+                <div class="row">    
+                    <a href="#">USB高清解</a>
+                    <a href="#">芒果TV在线</a>
+                    <a href="#">抢购价</a>
+                    <a href="#">USB解码</a>
+                    <a href="#">32英吋</a>
+                    <a href="#">10核</a>
+                    <a href="#">TCL品牌日</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">要赠品</a>
+                    <a href="#">新品上市</a>
+                    <a href="#">4K硬屏</a>
+                    <a href="#">领100元券</a>
+                    <a href="#">智能高清</a>
+                    <a href="#">8月，酷暑</a>
+                    <a href="#">8月大促</a>
+                    <a href="#">天猫定制</a>
+                </div>
+                <div class="row">     
+                    <a href="#">智能操作系统</a>
+                    <a href="#">金色外观</a>
+                    <a href="#">三星屏幕</a>
+                    <a href="#">客厅爆款</a>
+                    <a href="#">八核配置</a>
+                    <a href="#">限时特惠</a>
+                </div>
+                <div class="row">  
+                    <a href="#">限时特惠</a>
+                    <a href="#">热销爆款</a>
+                    <a href="#">4K全高清</a>
+                    <a href="#">六核智能</a>
+                    <a href="#">14核4K</a>
+                    <a href="#">YUNOS</a>
+                    <a href="#">64位处理器</a>
+                </div>
+                <div class="row">   
+                    <a href="#">UNOS</a>
+                    <a href="#">微信电视</a>
+                    <a href="#">4k超清</a>
+                    <a href="#">64位真4K</a>
+                    <a href="#">10核机芯</a>
+                    <a href="#">V字黑釉底座</a>
+                    <a href="#">4K超清</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">64位14核</a>
+                    <a href="#">海量影视</a>
+                    <a href="#">人气爆款</a>
+                    <a href="#">限时特惠</a>
+                    <a href="#">真4K屏</a>
+                    <a href="#">65吋巨屏</a>
+                    <a href="#">4K超清视界</a>
+                    <a href="#">限时特惠</a>
+                </div>
+                <div class="row">   
+                    <a href="#">6寸旗舰</a>
+                    <a href="#">4K机皇</a>
+                    <a href="#">曲面机皇</a>
+                    <a href="#">轻薄4K</a>
+                </div>
+            </div>
+            <div class="categoryContent" cid = "89">
+                <div class="row">    
+                    <a href="#">高性价比</a>
+                    <a href="#">纳米自洁釉</a>
+                    <a href="#">盖板易拆</a>
+                    <a href="#">领券更优惠</a>
+                    <a href="#">全国联保</a>
+                    <a href="#">咨询大惊喜</a>
+                </div>
+                <div class="row">  
+                    <a href="#">全自动感应</a>
+                    <a href="#">即热式功能</a>
+                    <a href="#">智能护理</a>
+                    <a href="#">官方正品</a>
+                    <a href="#">高效节水</a>
+                    <a href="#">立减300</a>
+                    <a href="#">官方正品</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">3秒速冲</a>
+                    <a href="#">送角阀软管</a>
+                    <a href="#">送角阀软管</a>
+                    <a href="#">12大中心仓</a>
+                    <a href="#">12大中心仓</a>
+                    <a href="#">8月，酷暑</a>
+                    <a href="#">蹲坐两用</a>
+                </div>
+                <div class="row">    
+                    <a href="#">德国品牌</a>
+                    <a href="#">加购收藏</a>
+                    <a href="#">加长型缸体</a>
+                    <a href="#">喷射虹吸</a>
+                    <a href="#">家装狂欢节</a>
+                    <a href="#">AB1287</a>
+                    <a href="#">领券再减</a>
+                    <a href="#">千城入户</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">强劲冲力</a>
+                    <a href="#">包安装</a>
+                    <a href="#">土豪直接付款</a>
+                    <a href="#">咨询在线客服</a>
+                    <a href="#">赠送原厂配件</a>
+                    <a href="#">新聚汇</a>
+                    <a href="#">吸力哥</a>
+                    <a href="#">九牧正品</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">覆盖区域内</a>
+                    <a href="#">指定1800</a>
+                    <a href="#">晒图返10元</a>
+                    <a href="#">1300城免</a>
+                    <a href="#">久坐舒适</a>
+                    <a href="#">晒图送20元</a>
+                    <a href="#">摩普智能马桶</a>
+                    <a href="#">双杆喷头</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">送空调扇</a>
+                    <a href="#">咨询大惊喜</a>
+                    <a href="#">节水小管家</a>
+                    <a href="#">高端大气</a>
+                    <a href="#">科勒授权</a>
+                    <a href="#">超旋风系列</a>
+                    <a href="#">限时升级</a>
+                </div>
+                <div class="row">   
+                    <a href="#">立减55</a>
+                    <a href="#">皇家体验</a>
+                    <a href="#">法恩莎正品</a>
+                    <a href="#">大仓销售</a>
+                </div>
+            </div>
+            <div class="categoryContent" cid = "88">
+                <div class="row">    
+                    <a href="#">热卖推荐</a>
+                    <a href="#">高档户型客厅</a>
+                    <a href="#">16CM坐垫</a>
+                    <a href="#">匠心独运</a>
+                    <a href="#">大小户型沙发</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">8.23预售</a>
+                    <a href="#">热销爆款</a>
+                    <a href="#">高档进口牛皮</a>
+                    <a href="#">三位可躺</a>
+                    <a href="#">北美进口橡木</a>
+                    <a href="#">全香樟实木</a>
+                    <a href="#">厂家直销</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">可拆洗</a>
+                    <a href="#">4级抗污</a>
+                    <a href="#">多功能</a>
+                    <a href="#">全实木雕刻</a>
+                    <a href="#">3D玛雅绒</a>
+                    <a href="#">北美橡木</a>
+                    <a href="#">防水防污</a>
+                    <a href="#">都市转角户型</a>
+                </div>
+                <div class="row">   
+                    <a href="#">多功能扶手</a>
+                    <a href="#">彼爱专利产品</a>
+                    <a href="#">国际设计师</a>
+                    <a href="#">进口头层牛皮</a>
+                    <a href="#">经典爆款</a>
+                    <a href="#">可拆洗设计</a>
+                    <a href="#">优质棉麻面料</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">高档超柔绒布</a>
+                    <a href="#">进口橡木框架</a>
+                    <a href="#">欧洲白蜡木</a>
+                    <a href="#">北美黑胡桃</a>
+                    <a href="#">质保3年</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">8.29零点</a>
+                    <a href="#">头层牛皮</a>
+                    <a href="#">实木雕花</a>
+                    <a href="#">全拆洗</a>
+                    <a href="#">大师设计</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">20-22号</a>
+                    <a href="#">北美黑胡桃</a>
+                    <a href="#">泰国进口实木</a>
+                    <a href="#">高端大气</a>
+                    <a href="#">22聚价</a>
+                    <a href="#">品质保证</a>
+                    <a href="#">限时升级</a>
+                    <a href="#">优质绒布</a>
+                </div>
+            </div>
+            <div class="categoryContent" cid = "87">
+                <div class="row">    
+                    <a href="#">机控遥控</a>
+                    <a href="#">搪瓷超强内胆</a>
+                    <a href="#">阿里智能</a>
+                    <a href="#">3D速热</a>
+                    <a href="#">热水器狂欢</a>
+                    <a href="#">3D动态加热</a>
+                    <a href="#">金圭经典</a>
+                    <a href="#">一级能效</a>
+                </div>
+                <div class="row">  
+                    <a href="#">三档功率可调</a>
+                    <a href="#">送双立人刀</a>
+                    <a href="#">全胆半胆加热</a>
+                    <a href="#">爆款低价购</a>
+                    <a href="#">4倍迅热增容</a>
+                    <a href="#">阿里智能</a>
+                    <a href="#">5昼夜保温</a>
+                </div>
+                <div class="row">
+                    <a href="#">官方正品</a>
+                    <a href="#">5昼夜保温</a>
+                    <a href="#">3KW速热</a>
+                    <a href="#">立减200</a>
+                    <a href="#">全国服务热线</a>
+                    <a href="#">8月26日</a>
+                    <a href="#">全国服务热线</a>
+                    <a href="#">wifi智能</a>
+                </div>
+                <div class="row">  
+                    <a href="#">新品抢鲜购</a>
+                    <a href="#">新品上市</a>
+                    <a href="#">26号10点</a>
+                    <a href="#">最后一天</a>
+                    <a href="#">美的自营</a>
+                    <a href="#">限时48小时</a>
+                    <a href="#">准时预约</a>
+                    <a href="#">官方正品</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">全国服务热线</a>
+                    <a href="#">嗨爆8月</a>
+                    <a href="#">高温抑菌</a>
+                    <a href="#">三档功率可调</a>
+                    <a href="#">全网爆款</a>
+                    <a href="#">以旧换新</a>
+                    <a href="#">8月暑促</a>
+                </div>
+                <div class="row">
+                    <a href="#">整机8年保修</a>
+                    <a href="#">准时预约</a>
+                    <a href="#">WIFI智控</a>
+                    <a href="#">狂欢疯抢</a>
+                    <a href="#">疯抢48小时</a>
+                    <a href="#">晒图送20元</a>
+                    <a href="#">8年包修</a>
+                    <a href="#">每日前100</a>
+                    <a href="#">8月26号</a>
+                </div>
+                <div class="row"> 
+                    <a href="#">每日前50</a>
+                    <a href="#">每日前80</a>
+                    <a href="#">高端大气</a>
+                    <a href="#">科勒授权</a>
+                    <a href="#">超旋风系列</a>
+                    <a href="#">限时升级</a>
+                </div>
+            </div>
+            <!-- 分类页内容 -->
+        </div>
+        <!-- 分类页结束 -->
+
+        <!-- 产品列表开始 -->
+        <div class="categoryProducts_outer">
+            <div class="eachCategoryProducts">
+                <div class="leftMark"></div>
+                <span class="eachCategoryTitle">潮流酷玩</span> <br />
+                <div class="productsItem">
+                    <a href="#"><img src="https://gw.alicdn.com/bao/uploaded/i1/3283306745/O1CN01zQkMM91zhFyyBNHDj_!!0-item_pic.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   影巨人蓝牙耳机无线耳塞式双耳苹果X通用</a>
+                    <span class="productsItemPrice">88.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="https://gw.alicdn.com/bao/uploaded/i3/1123069416/O1CN01FQpt1t2JQZqrwqmVc_!!0-item_pic.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   SAST/先科 U盘 看戏机8g 16g 32gU盘视频资源带U盘配送</a>
+                    <span class="productsItemPrice">55.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="https://gw.alicdn.com/bao/uploaded/i2/1872223496/O1CN011bhD6uRGEz0yEi9_!!0-item_pic.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   朗科128g内存卡手机tf卡行车记录仪C10摄像头4k高清A1</a>
+                    <span class="productsItemPrice">79.90</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="https://gw.alicdn.com/bao/uploaded/i3/3980941842/O1CN010yn4FM1PTg4k6lBQV_!!0-item_pic.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   惠普无线鼠标s4000静音轻薄便携笔记本电脑办公鼠标</a>
+                    <span class="productsItemPrice">79.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="https://gw.alicdn.com/bao/uploaded/i2/684055444/TB1axLelgvD8KJjSsplXXaIEFXa_!!0-item_pic.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   纽曼EX16蓝牙智能手表男士户外运动防水计步遥控拍照</a>
+                    <span class="productsItemPrice">149.00</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="eachCategoryProducts">
+                <div class="leftMark"></div>
+                <span class="eachCategoryTitle">冰箱</span> <br />
+                <div class="productsItem">
+                    <a href="#"><img src="http://tmall.how2j.cn/productSingle_middle/4619.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   Haier/海尔 BCD-618WDVGU1海尔变频对开门风冷智能控温双门电冰箱</a>
+                    <span class="productsItemPrice"> 5,949.15</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://tmall.how2j.cn/productSingle_middle/4608.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   【阿里智能】Galanz/格兰仕 BCD-251WTHG(T) 三门电冰箱251升风冷</a>
+                    <span class="productsItemPrice">2,474.25</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://tmall.how2j.cn/productSingle_middle/4598.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   Konka/康佳 BCD-558WEGY5SWT对开冰箱家用一级节能风冷无霜电冰箱-12岁</a>
+                    <span class="productsItemPrice">1,800.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://tmall.how2j.cn/productSingle_middle/4587.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   FRESTECH/新飞 BCD-286WDKSM阿里云智能wifi风冷无霜智控两门冰箱</a>
+                    <span class="productsItemPrice">2,879.20</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://tmall.how2j.cn/productSingle_middle/4576.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   MeiLing/美菱 BCD-560WUCX对开门电冰箱家用冰箱WIFI智能风冷无霜</a>
+                    <span class="productsItemPrice">3,059.10</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="eachCategoryProducts">
+                <div class="leftMark"></div>
+                <span class="eachCategoryTitle">太阳镜</span> <br />
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/9543.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   好先生同款墨镜孙红雷偏光男士太阳镜韩明星</a>
+                    <span class="productsItemPrice">97.50</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/9532.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   陌森太阳眼镜男女2016偏光定制驾驶近视</a>
+                    <span class="productsItemPrice">518.70</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/9521.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   帕莎Prsr太阳镜女偏光镜潮范冰冰同款女</a>
+                    <span class="productsItemPrice">624.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/9510.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   变色眼镜男女款半框太阳镜大框潮流防辐射防</a>
+                    <span class="productsItemPrice">170.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/9499.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   新款男士偏光太阳镜日夜两用墨镜潮运动开车</a>
+                    <span class="productsItemPrice">551.00</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="eachCategoryProducts">
+                <div class="leftMark"></div>
+                <span class="eachCategoryTitle">安全座椅</span> <br />
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/10192.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   新生儿婴儿提篮式安全座椅汽车用车载儿童安</a>
+                    <span class="productsItemPrice">882.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/10181.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   REEBABY汽车儿童安全座椅ISOFI</a>
+                    <span class="productsItemPrice">1,344.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/10170.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   REEBABY儿童安全座椅9个月-12岁</a>
+                    <span class="productsItemPrice">1,216.00</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/10159.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   好孩子汽车儿童安全座椅goodbaby9</a>
+                    <span class="productsItemPrice">1,199.40</span>
+                </div>
+                <div class="productsItem">
+                    <a href="#"><img src="http://how2j.cn/tmall/img/productSingle_middle/10148.jpg" width="190px" height="190px"></a>
+                    <a href="#" class="productsItemDesc">[热销]   惠尔顿儿童安全座椅isofix硬接口汽车</a>
+                    <span class="productsItemPrice">1,993.60</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <img src="http://how2j.cn/tmall/img/site/end.png" class="endPng">
+        </div>
+        <!-- 产品列表结束 -->
+
+
+        <!-- 页脚开始 -->
+        <footer>
+            <div class="footerImg">
+                <a href="#"><img src="http://how2j.cn/tmall/img/site/ensure.png"></a>
+            </div>
+            <div class="footerMid">
+                <div class="mid_column">
+                    <span class="mid_column_title">购物指南</span> 
+                    <a href="#">免费注册</a>
+                    <a href="#">开通支付宝</a>
+                    <a href="#">支付宝充值</a>
+                </div>
+                <div class="mid_column"> 
+                    <span class="mid_column_title">天猫保障</span> 
+                    <a href="#">发票保障</a>
+                    <a href="#">售后规则</a>
+                    <a href="#">缺货赔付</a>
+                </div>
+                <div class="mid_column"> 
+                    <span class="mid_column_title">支付方式</span> 
+                    <a href="#">快捷支付</a>
+                    <a href="#">信用卡</a>
+                    <a href="#">蚂蚁花呗</a>
+                    <a href="#">货到付款</a>
+                </div>
+                <div class="mid_column"> 
+                    <span class="mid_column_title">商家服务</span> 
+                    <a href="#">商家入驻</a>
+                    <a href="#">商家中心</a>
+                    <a href="#">天猫智库</a>
+                    <a href="#">天猫规则</a>
+                    <a href="#">物流服务</a>
+                    <a href="#">喵言喵语</a>
+                    <a href="#">运营服务</a>
+                </div>
+                <div class="mid_img">
+                    <span class="mid_column_title">手机天猫</span> 
+                    <img src="http://how2j.cn/tmall/img/site/ma.png">
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div style="clear: both;"></div>
+
+            <div class="footerLogo">
+                <img src="http://how2j.cn/tmall/img/site/cateye.png"> <!-- 天猫logo -->
+            </div>
+            <div class="footerBelow_outer">
+                <div class="footerBelow">
+                    <div class="whiteLink">
+                        <a href="#">关于天猫</a>
+                        <a href="#">帮助中心</a>
+                        <a href="#">开放平台</a>
+                        <a href="#">诚聘英才</a>
+                        <a href="#">联系我们</a>
+                        <a href="#">网站合作</a>
+                        <a href="#">法律声明</a>
+                        <a href="#">知识产权</a>
+                        <a href="#">廉正举报</a>
+                    </div>
+                    <div class="whiteLink">
+                        <a href="#">阿里巴巴集团</a>
+                        <span>|</span>
+                        <a href="#">淘宝网</a>
+                        <span>|</span>
+                        <a href="#">天猫</a>
+                        <span>|</span>
+                        <a href="#">聚划算</a>
+                        <span>|</span>
+                        <a href="#">全球速卖通</a>
+                        <span>|</span>
+                        <a href="#">阿里巴巴国际交易市场</a>
+                        <span>|</span>
+                        <a href="#">1688</a>
+                        <span>|</span>
+                        <a href="#">阿里妈妈</a>
+                        <span>|</span>
+                        <a href="#">阿里旅行·去啊</a>
+                        <span>|</span>
+                        <a href="#">阿里云计算</a>
+                        <span>|</span>
+                        <a href="#">阿里通信</a>
+                        <span>|</span>
+                        <a href="#">YunOS</a>
+                        <span>|</span>
+                        <a href="#">天天动听</a>
+                        <span>|</span>
+                        <a href="#">来往</a>
+                        <span>|</span>
+                        <a href="#">钉钉</a>
+                        <span>|</span>
+                        <a href="#">支付宝</a>
+                        <span>|</span>
+                        <a href="#">万网</a>
+                        <span>|</span>
+                        <a href="#">高德</a>
+                        <span>|</span>
+                        <a href="#">优视</a>
+                        <span>|</span>
+                        <a href="#">友盟</a>
+                        <span>|</span>
+                        <a href="#">虾米</a>  
+                    </div>
+                    <div class="license">
+                        <span>增值电信业务经营许可证： 浙B2-20110446</span>
+                        <span>网络文化经营许可证：浙网文[2015]0295-065号</span>
+                        <span>互联网医疗保健信息服务 审核同意书 浙卫网审【2014】6号 </span>
+                        <span>互联网药品信息服务资质证书编号：浙-（经营性）-2012-0005</span>
+                        <div class="copyRightYear">© 2003-2016 TMALL.COM 版权所有</div>
+                        <div>
+                            <img src="http://how2j.cn/tmall/img/site/copyRight1.jpg">
+                            <img src="http://how2j.cn/tmall/img/site/copyRight2.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- 页脚结束 -->
+
+    </body>
+</html>

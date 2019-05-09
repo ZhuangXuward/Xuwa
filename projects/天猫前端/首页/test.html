@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>您的咖啡管家</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+    	div.container {
+    		width: 80%;
+    		margin-top: 20px;
+    		padding: 0;
+    	}
+    	button {
+    		margin: 20px 0;
+    	}
+    </style>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$("button").click(function() {
+    			var x = $("input")[0].value;
+    			$("div.contsainer").hide("slow");
+    		});
+    	});
+    </script>
+</head>
+<body>
+	<div class="contsainer">
+		<input type="text" class="form-control" placeholder="您今天想喝什么呢？">
+		<button class="btn btn-primary">提交</button>
+	</div>
+</body>
+</html>
