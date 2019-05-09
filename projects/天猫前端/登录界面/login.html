@@ -11,44 +11,19 @@
 
     <script type="text/javascript">
     	$(document).ready(function() {
-                // 鼠标移到分类标签上，显示分类页内容
-                $("div.category div.categoryMenu_list").mouseover(function() {
-                    var cid_temp = $(this).attr("cid");
-                    cid_temp = cid_temp%4 + 87;
-                    // 总共14个list，由于懒的原因...用4个分类内容循环表示
-                    $("div.categoryContent[cid="+cid_temp+"]").show();
-                });
-                // 鼠标移开分类标签，隐藏分类页内容
-                $("div.category div.categoryMenu_list").mouseout(function() {
-                    var cid_temp = $(this).attr("cid");
-                    cid_temp = cid_temp%4 + 87;
-                    $("div.categoryContent[cid="+cid_temp+"]").hide();
-                });
-                // 鼠标移到分类内容上，持续显示
-                $("div.categoryContent").mouseover(function() {
-                    var cid_temp = $(this).attr("cid");
-                    $("div.categoryContent[cid="+cid_temp+"]").show();
-                });
-                // 鼠标移开分类内容，隐藏分类页内容
-                $("div.categoryContent").mouseout(function() {
-                    var cid_temp = $(this).attr("cid");
-                    $("div.categoryContent[cid="+cid_temp+"]").hide();
-                });
-
-                // 显示和隐藏猫耳朵
-                $("div.headBar div.rightMenu span").mouseover(function() {
-                    var pos_left = $(this).position().left;
-                    var width_menu = $(this).css("width");
-                    var pos_Left = parseInt(pos_left) + parseInt(width_menu)/2;
-                    // 注意为$(this)而不是this
-                    $("img.catEar").css({
-                        left: pos_Left+246,
-                    });
-                    $("img.catEar").fadeIn(350);
-                });
-                $("div.headBar div.rightMenu span").mouseout(function() {
-                    $("img.catEar").css("display", "none");
-                    // 由于使用了绝对定位，使用fadeOut会有偏移
+                $("div.loginBlock_button button").click(function() {
+                    var name = $("div.loginBlock_input input#name").val();
+                    // 注意这里与js的区别，js：.value，jQuery：.val()
+                    var password = $("div.loginBlock_input input#password").val()
+                    if (name == "")
+                        $("div.loginSuccess").html("请输入用户名！");
+                    else if (password == "")
+                        $("div.loginSuccess").html("请输入密码！");
+                    else {
+                        $("div.loginSuccess").html("登录成功！");
+                        window.location.replace("../首页/total.html");
+                    }
+                    $("div.loginSuccess").show();
                 });
                 $("footer a").click(function() {
                     alert("纯前端实现，没有实际链接！");
@@ -74,11 +49,12 @@
  		div.loginInterface div.loginBlock {
  			position: absolute;
  			width: 350px;
+ 			height: 400px;
  			top: 150px;
  			right: 100px;
  			border: 1px solid white;
  			background-color: white;
- 			padding: 20px 10px 120px 10px;
+ 			padding: 20px 10px 0px 10px;
  		}	
  		div.loginInterface div.loginBlock div.loginBlock_text {
  			font-weight: bold;
@@ -123,9 +99,18 @@
  			color: white;
  			font-weight: bold;
  		}
+ 		div.loginSuccess {
+            width: 200px;
+            text-align: center;
+            margin: 10px auto;
+            font-size: 16px;
+            color: rgb(196, 0, 0);
+            display: none;
+        }
  		footer {/*
                 position: relative;
                 margin-top: -400px;*/
+                margin-top: 20px;
                 border-top: 1px solid rgb(231, 231, 231);
         }
         div.footerImg {
@@ -187,6 +172,7 @@
         div.footerBelow .whiteLink a:hover {
             text-decoration: none;
         }
+
     </style>
 </head>
 <body>
@@ -210,6 +196,9 @@
 			<div class="loginBlock_button">
 				<button class="btn btn-block">登录</button>
 			</div>
+			<div class="loginSuccess">
+		        <p>登录成功！</p>
+		    </div>
 		</div>
 	</div>
 
