@@ -11,49 +11,24 @@
 
     <script type="text/javascript">
     	$(document).ready(function() {
-                // 鼠标移到分类标签上，显示分类页内容
-                $("div.category div.categoryMenu_list").mouseover(function() {
-                    var cid_temp = $(this).attr("cid");
-                    cid_temp = cid_temp%4 + 87;
-                    // 总共14个list，由于懒的原因...用4个分类内容循环表示
-                    $("div.categoryContent[cid="+cid_temp+"]").show();
-                });
-                // 鼠标移开分类标签，隐藏分类页内容
-                $("div.category div.categoryMenu_list").mouseout(function() {
-                    var cid_temp = $(this).attr("cid");
-                    cid_temp = cid_temp%4 + 87;
-                    $("div.categoryContent[cid="+cid_temp+"]").hide();
-                });
-                // 鼠标移到分类内容上，持续显示
-                $("div.categoryContent").mouseover(function() {
-                    var cid_temp = $(this).attr("cid");
-                    $("div.categoryContent[cid="+cid_temp+"]").show();
-                });
-                // 鼠标移开分类内容，隐藏分类页内容
-                $("div.categoryContent").mouseout(function() {
-                    var cid_temp = $(this).attr("cid");
-                    $("div.categoryContent[cid="+cid_temp+"]").hide();
-                });
-
-                // 显示和隐藏猫耳朵
-                $("div.headBar div.rightMenu span").mouseover(function() {
-                    var pos_left = $(this).position().left;
-                    var width_menu = $(this).css("width");
-                    var pos_Left = parseInt(pos_left) + parseInt(width_menu)/2;
-                    // 注意为$(this)而不是this
-                    $("img.catEar").css({
-                        left: pos_Left+246,
-                    });
-                    $("img.catEar").fadeIn(350);
-                });
-                $("div.headBar div.rightMenu span").mouseout(function() {
-                    $("img.catEar").css("display", "none");
-                    // 由于使用了绝对定位，使用fadeOut会有偏移
-                });
                 $("footer a").click(function() {
                     alert("纯前端实现，没有实际链接！");
                 });
-            });
+                $("div.registerBlock_button button").click(function() {
+                    var name = $("div.registerBlock_input input#name").val();
+                    // 注意这里与js的区别，js：.value，jQuery：.val()
+                    var password = $("div.registerBlock_input input#password").val()
+                    if (name == "")
+                        $("div.registerSuccess").html("请输入用户名！");
+                    else if (password == "")
+                        $("div.registerSuccess").html("请输入密码！");
+                    else {
+                        $("div.registerSuccess").html("注册成功！");
+                        window.location.replace("../首页/total.html");
+                    }
+                    $("div.registerSuccess").show();
+                });
+        });
     </script>
 
     <style type="text/css">
@@ -63,33 +38,33 @@
 
                 min-width:1020px;
 		}
-    	div.loginInterface {
+    	div.registerInterface {
     		width: 1190px;
     		margin: 0 auto;
     		position: relative;
     	}
- 		div.loginInterface div.loginLogo {
+ 		div.registerInterface div.registerLogo {
  			margin: 20px 20px 20px 0;
  		} 
- 		div.loginInterface div.loginBlock {
- 			position: absolute;
+ 		div.registerInterface div.registerBlock {
  			width: 350px;
  			top: 150px;
  			right: 100px;
  			border: 1px solid white;
  			background-color: white;
  			padding: 20px 10px 120px 10px;
+            margin: 0 auto;
  		}	
- 		div.loginInterface div.loginBlock div.loginBlock_text {
+ 		div.registerInterface div.registerBlock div.registerBlock_text {
  			font-weight: bold;
  			font-size: 15px;
  			color: rgb(60, 60, 60);
  			margin: 20px 10px;
  		}
- 		div.loginInterface div.loginBlock div.loginBlock_input {
+ 		div.registerInterface div.registerBlock div.registerBlock_input {
  			margin: 10px 10px;
  		}
- 		div.loginInterface div.loginBlock div.loginBlock_input span {
+ 		div.registerInterface div.registerBlock div.registerBlock_input span {
  			width: 35px;
  			line-height: 35px;
  			text-align: center;
@@ -98,7 +73,7 @@
  			color: rgb(96, 96, 96);
  			background-color: rgb(203, 203, 203);
  		}
- 		div.loginInterface div.loginBlock div.loginBlock_input input {
+ 		div.registerInterface div.registerBlock div.registerBlock_input input {
  			height: 34px;
  			width: 269px;
  			position: relative;
@@ -107,22 +82,32 @@
  			padding-left: 5px;
  			border: 1px solid lightgray;
  		}
- 		div.loginInterface div.loginBlock a {
+ 		div.registerInterface div.registerBlock a {
  			display: inline-block;
  			margin: 10px 10px 20px 10px;
  			text-decoration: none;
  			color: gray;
  		}
- 		div.loginInterface div.loginBlock a:hover {
+ 		div.registerInterface div.registerBlock a:hover {
  			color: rgb(218, 13, 30);
  		}
- 		div.loginInterface div.loginBlock_button button {
+ 		div.registerInterface div.registerBlock_button button {
  			width: 307px;
  			margin-left: 8px;
  			background-color: rgb(196, 0, 0);
  			color: white;
  			font-weight: bold;
  		}
+        div.registerSuccess {
+            width: 200px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            top: -70px;
+            font-size: 16px;
+            color: rgb(196, 0, 0);
+            display: none;
+        }
  		footer {/*
                 position: relative;
                 margin-top: -400px;*/
@@ -190,28 +175,28 @@
     </style>
 </head>
 <body>
-	<div class="loginInterface">
-		<div class="loginLogo">
+	<div class="registerInterface">
+		<div class="registerLogo">
 			<a href="../首页/total.html"><img src="http://how2j.cn/tmall/img/site/simpleLogo.png"></a>
 		</div>
-		<img src="http://how2j.cn/tmall/img/site/loginBackground.png" class="loginBackground">
-		<div class="loginBlock">
-			<div class="loginBlock_text">账户登录</div>
-			<div class="loginBlock_input">
+		<div class="registerBlock">
+			<div class="registerBlock_text">账户注册</div>
+			<div class="registerBlock_input">
 				<span class=" glyphicon glyphicon-user"></span>
-				<input type="text" placeholder="手机/会员名/邮箱" name="name" id="name">
+				<input type="text" placeholder="用户名一旦注册无法修改" name="name" id="name">
 			</div>
-			<div class="loginBlock_input">
+			<div class="registerBlock_input">
 				<span class=" glyphicon glyphicon-lock"></span>
-				<input type="password" placeholder="密码" name="password" id="password">
+				<input type="password" placeholder="输入您的密码" name="password" id="password">
 			</div>			
-			<a href="#">忘记登录密码</a>
-			<a href="register.html" class="pull-right">免费注册</a>
-			<div class="loginBlock_button">
-				<button class="btn btn-block">登录</button>
+			<div class="registerBlock_button">
+				<button class="btn btn-block">注册</button>
 			</div>
 		</div>
 	</div>
+    <div class="registerSuccess">
+        <p>注册成功！</p>
+    </div>
 
 	<!-- 页脚开始 -->
         <footer>
