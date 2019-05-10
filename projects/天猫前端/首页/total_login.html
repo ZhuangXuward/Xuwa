@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>天猫前端布局</title>
+        <title>公共页面+轮播+产品列表+登录界面</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
@@ -84,9 +84,9 @@
                 color: #C40000;
                 text-decoration: none;
             }
-            footer {
-                /*position: relative;*/
-                /*margin-top: -400px;*/
+            footer {/*
+                position: relative;
+                margin-top: -400px;*/
                 border-top: 1px solid rgb(231, 231, 231);
             }
             div.footerImg {
@@ -333,12 +333,6 @@
             div.eachCategoryProducts div.productsItem img:hover {
                 opacity: 0.7;
             }
-            div.xrCode {
-                position: absolute;
-                top: 2600px;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
         </style>
         <script type="text/javascript">
             $(document).ready(function() {
@@ -388,9 +382,6 @@
         </script>
     </head>
     <body>
-        <div class="xrCode">
-            <img src="http://pqpofrtnj.bkt.clouddn.com/xrcode.png" width="500px">
-        </div>
         <!-- 导航栏开始 -->
         <nav class="top_outer">
             <div class="top">
@@ -399,7 +390,7 @@
                     天猫首页
                 </a>
                 <span>喵，欢迎来到天猫</span>
-                <a href="../登录界面/login.html">请登录</a>
+                <a href="../登录界面/login.html">已登录</a>
                 <a href="../登录界面/register.html">免费注册</a>
                 <span class="pull-right">
                     <a href="../订单和购物车/myorder.html">我的订单</a>
