@@ -49,6 +49,7 @@
         	/*padding: 10px;*/
             padding-left: 0;
             padding-bottom: 0;
+            position: relative;
         	/*border-bottom: 2px solid rgb(232, 232, 232);*/
         }
         div.myOrder_headBar:after {
@@ -185,6 +186,13 @@
         div.myOrder_itemList table:hover {
             outline: 2px solid rgb(170, 170, 170);
         }
+        div.tryHere {
+            position: absolute;
+            left: -60px;
+            font-size: 50px;
+            color: red;
+            display: none;
+        }
         footer {/*
                 position: relative;
                 margin-top: -400px;*/
@@ -262,10 +270,20 @@
             });
 
             // 未实现功能
-            $("div.myOrder_itemList a, div.myOrder_itemList button").click(function() {
+            $("div.myOrder_itemList a, div.myOrder_itemList button, a.shoppingCart").click(function() {
                 alert("还没有实现这个功能哦！");
+                goTryHere();
             });
         });
+
+        // 提示函数
+        function goTryHere() {
+            $("div.tryHere").show();
+            $("div.tryHere").animate({left: "-40px"});
+            $("div.tryHere").animate({left: "-50px"});
+            $("div.tryHere").animate({left: "-40px"});
+            $("div.tryHere").animate({left: "-60px"});
+        }
 
         // 我的订单交互函数
         function showCurrentlist(type) {
@@ -297,7 +315,7 @@
             <a href="../登录界面/register.html">免费注册</a>
             <span class="pull-right">
                 <a href="../订单和购物车/myorder.html">我的订单</a>
-                <a href="#">
+                <a href="#" class="shoppingCart">
                     <span class="glyphicon glyphicon-shopping-cart redColor reverse"></span>
                     购物车<strong>0</strong>件
                 </a>
@@ -310,6 +328,9 @@
 	</div>
 
 	<div class="myOrder_headBar">
+        <div class="tryHere">
+            <span class="glyphicon glyphicon-hand-right"></span>
+        </div>
 		<div class="myOrder_headItem" sit="all">
 			<a href="#" sit="all">所有订单</a>
 		</div>
