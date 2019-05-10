@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>我的订单界面（没有后端）</title>
+	<title>我的订单</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
@@ -260,6 +260,11 @@
                 var type = $(this).attr("sit");
                 showCurrentlist(type);
             });
+
+            // 未实现功能
+            $("div.myOrder_itemList a, div.myOrder_itemList button").click(function() {
+                alert("还没有实现这个功能哦！");
+            });
         });
 
         // 我的订单交互函数
@@ -383,9 +388,7 @@
                         </div>
                     </td>
                     <td class="myOrder_confirm" sit="evaluation">
-                        <a href="#nowhere">
-                            <button class="orderListItemReview btn btn-primary">评价</button>
-                        </a>
+                        <button class="orderListItemReview btn btn-primary">评价</button>
                     </td>
                 </tr>
             </tbody>
@@ -443,9 +446,7 @@
                         </div>
                     </td>
                     <td class="myOrder_confirm" sit="evaluation">
-                        <a href="#nowhere">
-                            <button class="orderListItemReview btn btn-primary">评价</button>
-                        </a>
+                        <button class="orderListItemReview btn btn-primary">评价</button>
                     </td>
                 </tr>
             </tbody>
@@ -502,9 +503,7 @@
                         </div>
                     </td>
                     <td class="myOrder_confirm" sit="pay">
-                        <a href="#nowhere">
-                            <button class="orderListItemReview btn btn-primary">付款</button>
-                        </a>
+                        <button class="orderListItemReview btn btn-primary">付款</button>
                     </td>
                 </tr>
             </tbody>
@@ -561,9 +560,7 @@
                         </div>
                     </td>
                     <td class="myOrder_confirm" sit="pay">
-                        <a href="#nowhere">
-                            <button class="orderListItemReview btn btn-primary">付款</button>
-                        </a>
+                        <button class="orderListItemReview btn btn-primary">付款</button>
                     </td>
                 </tr>
             </tbody>
@@ -620,9 +617,7 @@
                         </div>
                     </td>
                     <td class="myOrder_confirm" sit="pay">
-                        <a href="#nowhere">
-                            <button class="orderListItemReview btn btn-primary">确认收货</button>
-                        </a>
+                        <button class="orderListItemReview btn btn-primary">确认收货</button>
                     </td>
                 </tr>
             </tbody>

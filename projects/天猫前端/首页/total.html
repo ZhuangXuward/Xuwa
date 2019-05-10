@@ -384,6 +384,13 @@
                 $("footer a").click(function() {
                     alert("仿站！没有实际链接！");
                 });
+
+                // 纯前端，对其他页面跳转做处理
+                $("div.search_outer a, div.category a, div#carousel-outer a").attr("href", "../登录界面/login.html");
+                $("div.categoryProducts_outer a").attr("href", "../订单和购物车/myorder.html");
+                $("a.shoppingCart, div.search_outer button").click(function() {
+                    alert("不好意思！这个功能没做哦~");
+                });
             });
         </script>
     </head>
@@ -403,7 +410,7 @@
                 <a href="../登录界面/register.html">免费注册</a>
                 <span class="pull-right">
                     <a href="../订单和购物车/myorder.html">我的订单</a>
-                    <a href="#">
+                    <a href="#" class="shoppingCart">
                         <span class="glyphicon glyphicon-shopping-cart redColor reverse"></span>
                         购物车<strong>0</strong>件
                     </a>
