@@ -7,7 +7,7 @@ function prepareGallery() {
 	var links = gallery.getElementsByTagName("a");
 	for (let j = 0; j < links.length; ++ j) {
 		links[j].onclick = function() {
-			showPic(this);
+			showPic(links[j]);
 			return false;
 		}
 	}
@@ -18,5 +18,5 @@ function showPic(whichpic) {
 	// placeholder.src = whichpic.href;
 	placeholder.setAttribute("src", whichpic.href);
 	var description = document.getElementById("description");
-	description.firstChild.nodeValue = whichpic.title;
+	description.firstChild.odeValue = whichpic.title;
 }

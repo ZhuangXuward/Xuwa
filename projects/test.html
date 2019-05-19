@@ -1,39 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>test</title>
-	<style type="text/css">
-		ul {
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
-		}
-		li {
-			float: left;
-		}
-		a {
-			text-decoration: none;
-			display: block;
-			width: 60px;
-			text-align: center;
-			padding: 2px;
-			color: white;
-			border: 1px solid gray;
-		}	
-		a:link {
-			background-color: black;
-		}
-		a:hover {
-			background-color: gray;
-		}
-	</style>
+	<meta charset="UTF-8">
+	<title>classlist</title>
 </head>
 <body>
-	<ul class="nav">
-		<li><a href="#">Item1</a></li>
-		<li><a href="#">Item2</a></li>
-		<li><a href="#">Item3</a></li>
-		<li><a href="#">Item4</a></li>
-	</ul>
+	<div class="haha look another"></div>
+	<script type="text/javascript">
+		var div = document.getElementsByTagName("div")[0];
+		console.log(typeof div.classList);
+	</script>
 </body>
 </html>
