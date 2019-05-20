@@ -6,12 +6,12 @@ window.onload = function() {
 		slideClick[i].getElementsByTagName("a")[0].innerHTML += "(" + totalCount + ")";
 		slideClick[i].onclick = function() {
 			$("div#block" + (i + 1)).slideToggle();
-			clickHide(i, slideUP.length);
+			clickHideandTurn(i, slideUP.length);
 		};
 	}
 }
 
-function clickHide(index, total) {
+function clickHideandTurn(index, total, turn) {
 	var slideUP = document.getElementsByClassName("slideUP");
 	for (let j = 0; j < total; ++ j) {
 		if (j == index) continue;

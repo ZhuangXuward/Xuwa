@@ -5,8 +5,9 @@ body {
 }
 #project {
 	margin: 20px auto;
-	width: 50%;
-	height: 600px;
+	width: 300px;
+	border: 10px dashed rgb(1, 25, 53);
+	border-radius: 10px;
 }
 div.slideUP {
 	width: 300px;
@@ -37,8 +38,8 @@ div.slideUP a {
 	width: 300px;
 	line-height: 40px;
 	color: white;
-	/*border: 0.3px solid white;*/
-	background-color: rgb(55, 198, 192);
+	border: 0.3px solid white;
+	background-color: rgb(63, 94, 161);
 	text-align: center;
 	font-weight: bold;
 	text-decoration: none;
@@ -46,5 +47,5 @@ div.slideUP a {
 div.slideUP a:hover {
 	text-decoration: none;
 	color: white;
-	background-color: rgb(29, 176, 184);
+	background-color: rgb(173, 183, 204);
 }
