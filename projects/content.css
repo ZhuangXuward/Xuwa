@@ -1,0 +1,50 @@
+body {
+	font-size: 18px;
+	font-family: 微软雅黑;
+	/*background-color: gray;*/
+}
+#project {
+	margin: 20px auto;
+	width: 50%;
+	height: 600px;
+}
+div.slideUP {
+	width: 300px;
+	/*height: 100px;*/
+	margin: 0 auto;
+	display: none;
+	background-color: rgb(254, 227, 136);
+}
+div.slideClick {
+	width: 300px;
+	margin: 0 auto;
+	background-color: rgb(0, 52, 63);
+	text-align: center;
+	line-height: 30px;
+	color: white;
+}
+div.slideClick a {
+	display: block;
+	color: white;
+	line-height: 50px;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 20px;
+	border: 1px solid white;
+}
+div.slideUP a {
+	display: block;
+	width: 300px;
+	line-height: 40px;
+	color: white;
+	/*border: 0.3px solid white;*/
+	background-color: rgb(55, 198, 192);
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+}
+div.slideUP a:hover {
+	text-decoration: none;
+	color: white;
+	background-color: rgb(29, 176, 184);
+}

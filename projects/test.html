@@ -3,12 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<title>classlist</title>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		div.outer {
+			width: 300px;
+			margin: 0 auto;
+		}
+		div#slideUP {
+			width: 200px;
+			height: 100px;
+			background-color: red;
+		}
+		div#slide {
+			width: 200px;
+			height: 30px;
+			background-color: black;
+		}
+	</style>
 </head>
 <body>
-	<div class="haha look another"></div>
+	<div class="outer">
+		<div id="slideUP"></div>
+		<div id="slide"></div>
+		<div id="slideUP"></div>
+		<div id="slide"></div>
+		<div id="slideUP"></div>
+		<div id="slide"></div>
+		<div id="slideUP"></div>
+		<div id="slide"></div>
+	</div>
 	<script type="text/javascript">
-		var div = document.getElementsByTagName("div")[0];
-		console.log(typeof div.classList);
+		$("div#slideUP").slideUp();
+		$("div#slide").click(function(){
+			$("div#slideUP").slideToggle();
+		});
 	</script>
 </body>
 </html>

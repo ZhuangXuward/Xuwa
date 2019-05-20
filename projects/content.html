@@ -3,44 +3,47 @@
 <head>
 	<title>我的一些小项目</title>
 	<link rel="shortcut icon" href="../icons/project.jpg">
-	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-	<style>
-		body {
-			background: url("../background/ridwhite.png");
-		}
-		#project {
-			border: 10px rgb(183, 181, 93) dashed;
-			border-radius: 20px;
-			padding: 0;
-			margin: 0 auto;
-			width: 40%;
-			text-align: center;
-			vertical-align: middle;
-		}
-		ul {
-			list-style-type: none;
-			padding: 0;
-		}
-		a {color: rgb(183, 99, 12); text-decoration: none;}
-		a:hover {color: rgb(208, 125, 47);}
-	</style>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./content.js"></script>
+	<link rel="stylesheet" type="text/css" href="./content.css">
 </head>
 <body>
 	<div id="project">
-		<ul>
-			<li><h1 class="calculator"><a href="calculator.html">简单计算器</a></h1></li>
-			<li><h1 class="calculator"><a href="calculator_improved.html">简单计算器改进版</a></h1></li>
-			<li><h1><a href="div_control.html">div属性控制</a></h1></li>
-			<li><h1><a href="change_skin.html">网页换肤</a></h1></li>
-			<li><h1><a href="alert.html">函数接受参数并弹出</a></h1></li>
-			<li><h1><a href="loop_turn_red.html">使用循环使div变色</a></h1></li>
-			<li><h1><a href="mousein_out.html">鼠标移入移出改变样式</a></h1></li>
-			<li><h1><a href="passreveal.html">记住密码提示框</a></h1></li>
-			<li><h1><a href="nav.html">水平导航栏</a></h1></li>
-			<li><h1><a href="snake.html">网页小游戏：贪吃蛇</a></h1></li>
-			<li><h1><a href="天猫前端/首页/total.html">天猫前端模仿（PC端）</a></h1></li>
-			<li><h1><a href="gallery/gallery1.html">画廊相册_文字导航版</a></h1></li>
-		</ul>
+
+		<!-- 1.JavaScript小练习 -->
+		<div class="slideClick" id="slideClick1">
+			<a href="#">JavaScript小练习</a>
+		</div>
+		<div class="slideUP" id="block1">
+			<a href="div_control.html">div属性控制</a>
+			<a href="change_skin.html">网页换肤</a>
+			<a href="alert.html">函数接受参数并弹出</a>
+			<a href="loop_turn_red.html">使用循环使div变色</a>
+			<a href="mousein_out.html">鼠标移入移出改变样式</a>
+			<a href="passreveal.html">记住密码提示框</a>
+			<a href="./move/move.html">移动函数对比</a>
+		</div>
+
+		<!-- 2.JavaScript组件 -->
+		<div class="slideClick" id="slideClick2">
+			<a href="#">JavaScript组件</a>
+		</div>
+		<div class="slideUP" id="block2">
+			<a href="nav.html">水平导航栏</a>
+			<a href="./carousel/slider.html">纯JS实现：轮播图</a>
+		</div>
+
+		<!-- 3.个人项目 -->
+		<div class="slideClick" id="slideClick3">
+			<a href="#">个人项目</a>
+		</div>
+		<div class="slideUP" id="block3">
+			<a href="calculator.html">简单计算器</a>
+			<a href="calculator_improved.html">简单计算器改进版</a>
+			<a href="snake.html">网页小游戏：贪吃蛇</a>
+			<a href="gallery/gallery1.html">画廊相册_文字导航版</a>
+			<a href="天猫前端/首页/total.html">天猫前端模仿PC端</a>
+		</div>
 	</div>
 </body>
 </html>
