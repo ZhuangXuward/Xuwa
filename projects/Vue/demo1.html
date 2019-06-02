@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Learning</title>
+    <link rel="shortcut icon" href="../icons/project.jpg">
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        div#main_wrap {
+            width: 300px;
+            margin: 20px auto;
+        }
+        div#main_wrap input {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main_wrap">
+        <h1>响应式显示</h1>
+        <div id="root">
+            fistName: <input type="text" v-model="firstName"> <br />
+            lastName: <input type="text" v-model="lastName"> <br />
+            fullName: <span>{{fullName}}</span>
+        </div>
+    </div>
+    <script>
+        var data = {
+            a: 2
+        };
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: 'Zhuang',
+                lastName: 'Xuward'
+            },
+            computed: {
+                fullName: function () {
+                    return this.firstName + ' ' + this.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
