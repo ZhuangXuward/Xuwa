@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Lifeblog.com</title>
+    <script type="text/javascript" src="js/friends.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/friends.css" />
+</head>
+
+<body>
+    <!-- 轮播图 -->
+    <div id="content">
+        <div id="carousel_wrap">
+            <div id="carousel_images">
+                <!-- 前后分别加上一张图片，方便无缝过渡显示。可以使用JS DOM增加节点操作省去该步骤 -->
+                <img src="images/carousel/3.jpg">
+                <img src="images/carousel/1.jpg">
+                <img src="images/carousel/2.jpg">
+                <img src="images/carousel/3.jpg">
+                <img src="images/carousel/1.jpg">
+            </div>
+            <span class="arrow left-arrow">&lt;</span>
+            <span class="arrow right-arrow">&gt;</span>
+            <div id="dots">
+                <!-- 使用小点标记实际多少张图片，要添加图片时需要修改carousel_images和此处 -->
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <div id="test">
+            <h1>blog</h1>
+            <h1>blogs</h1>
+            <h1>blog</h1>
+            <h1>blog</h1>
+        </div>
+    </div>
+    <!-- END 轮播图 -->
+</body>
+</html>
