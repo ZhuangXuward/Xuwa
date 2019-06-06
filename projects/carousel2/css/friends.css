@@ -7,7 +7,7 @@ body {
 #content #carousel_wrap {
 	position: relative;
 	margin: 0 auto;
-	width: 50%; /* 轮播图宽度 */
+	width: 100%; /* 轮播图宽度 */
 	overflow: hidden;
 }
 
