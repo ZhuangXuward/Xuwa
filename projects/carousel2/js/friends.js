@@ -38,9 +38,28 @@ window.onload = function() {
 	// 点击小点
 	for (let i = 0; i < oBtn.length; ++ i) {
 		oBtn[i].onclick = function() {
-			var newLeft = (-img.clientWidth) * (i + 1);
+			var left = parseInt(carouImg.style.left);
+			var newLeft;
+
+			// 如果没有临界判断，当图片位于“替补图片”时，点击提示点会有错乱过渡
+			if (left <= (-img.clientWidth) * (index_length + 1)) {
+				// 临界情况判断
+				carouImg.classList.remove("transition");
+				newLeft = -img.clientWidth * 1;
+				carouImg.style.left = newLeft + 'px';
+			}
+			if (left >= -10) {
+				// 临界情况判断
+				carouImg.classList.remove("transition");
+				newLeft = -img.clientWidth * index_length;
+				carouImg.style.left = newLeft + 'px';
+			}
+			
+			newLeft = (-img.clientWidth) * (i + 1);
 			carouImg.style.left = newLeft + 'px';
-			console.log(i);
+			// 注意click事件的执行过程，要在修改完left后添加transition类
+			carouImg.classList.add("transition");
+			index = i;
 			showCurrentDot(i);
 		}
 	}
@@ -49,6 +68,7 @@ window.onload = function() {
 	function next_pic() {
 		var left = parseInt(carouImg.style.left);
 		if (left <= (-img.clientWidth) * (index_length + 1)) {
+			// 临界情况判断
 			carouImg.classList.remove("transition");
 			var newLeft = -img.clientWidth * 1;
 			carouImg.style.left = newLeft + 'px';
@@ -57,10 +77,11 @@ window.onload = function() {
 			index = 1;
 		}
 		else {
+			// 一般情况
 			var newLeft = parseInt(carouImg.style.left) - img.clientWidth;
 			(index == (index_length - 1)) ? index = 0 : index += 1;
 		}
-		carouImg.style.left = newLeft + 'px';
+		carouImg.style.left = newLeft + 'px'; // 不要忘记添加'px'
 		console.log(newLeft);
 	}
 
@@ -68,6 +89,7 @@ window.onload = function() {
 	function pre_pic() {
 		var left = parseInt(carouImg.style.left);
 		if (left >= -10) {
+			// 临界情况判断
 			carouImg.classList.remove("transition");
 			var newLeft = -img.clientWidth * index_length;
 			carouImg.style.left = newLeft + 'px';
@@ -76,6 +98,7 @@ window.onload = function() {
 			index = index_length - 2;
 		}
 		else {
+			// 一般情况
 			var newLeft = parseInt(carouImg.style.left) + img.clientWidth;
 			(index == 0) ? index = (index_length - 1) : index -= 1;
 		}
