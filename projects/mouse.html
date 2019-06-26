@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mouseenter/mouseleave&&mouseover/mouseout</title>
+    <style>
+        .wrap {
+            width: 50%;
+            box-sizing: border-box;
+            border: 1px solid black;
+            height: 350px;
+            float: left;
+            margin: 20px 0;
+        }
+
+        .inner {
+            width: 80%;
+            border: 1px solid red;
+            margin: 30px auto;
+            vertical-align: middle;
+        }
+
+        .item {
+            width: 80%;
+            height: 50px;
+            border: 1px solid green;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        mouseover count: <span></span>
+        <div class="inner mouseover">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+    <div class="wrap">
+        mouseenter count: <span></span>
+        <div class="inner mouseenter">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+    <div class="wrap">
+        mouseout count: <span></span>
+        <div class="inner mouseout">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+    <div class="wrap">
+        mouseleave count: <span></span>
+        <div class="inner mouseleave">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+    <script>   
+        var a = 0, b = 0, c = 0, d = 0;
+        var overCount = document.getElementsByClassName("mouseover")[0];
+        var enterCount = document.getElementsByClassName("mouseenter")[0];
+        var outCount = document.getElementsByClassName("mouseout")[0];
+        var leaveCount = document.getElementsByClassName("mouseleave")[0];
+        overCount.onmouseover = function() {
+            a ++;
+            document.getElementsByTagName("span")[0].innerHTML = a;
+        }
+        enterCount.onmouseenter = function() {
+            b ++;
+            document.getElementsByTagName("span")[1].innerHTML = b;
+        }
+        outCount.onmouseout = function() {
+            c ++;
+            document.getElementsByTagName("span")[2].innerHTML = c;
+        }
+        leaveCount.onmouseleave = function() {
+            d ++;
+            document.getElementsByTagName("span")[3].innerHTML = d;
+        }
+    </script>
+</body>
+</html>
