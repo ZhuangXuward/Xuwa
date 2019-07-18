@@ -1,18 +1,19 @@
 body {
     margin: 0;
     /* background-color: lightgray; */
-    min-width: 990px;
+    min-width: 1500px;
+    /* TODO: 此处暴力使用截图背景，不同显示器下可能会出现错位现象。 */
 }
 
 nav #nav_header {
-    height: 170px;
-    /* background: url("../image/navbar_lvteng.jpg") no-repeat; */
+    background: url("../image/navbar_lvteng2.png") no-repeat;
+    background-size: contain;
     /* outline: 1px solid black; */
 }
 
 nav #header_wrapper {
     width: 980px;
-    height: 170px;
+    height: 163px;
     margin: 0 auto;
     /* outline: 1px solid red; */
     position: relative;
@@ -71,6 +72,7 @@ nav #header_wrapper #main_hotline {
     position: absolute;
     bottom: 30px;
     right: 10px;
+    background-color: white;
     box-shadow: inset 0px -5px 20px rgb(224, 224, 224);
 }
 
