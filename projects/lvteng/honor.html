@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>广东铝腾建材科技有限公司</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <script type="text/javascript" src="js/carousel.js"></script>
+    <link rel="stylesheet" href="./css/honor.css">
 </head>
 <body>
+    <div id="shadow" onclick="hideShadow()"></div>
+    <img id="shadowpic" align="center" />
+    <img id="shadowClose" src="image/honor/close.png" onclick="hideShadow()" />
     <nav>
         <div id="nav_header">
             <div id="header_wrapper">
@@ -36,7 +38,7 @@
         <div id="nav_bar">
             <div id="bar_wrapper">
                 <ul>
-                    <li><a href="index.html title="铝腾建材首页">铝腾建材首页</a></li>
+                    <li><a href="index.html" title="铝腾建材首页">铝腾建材首页</a></li>
                     <li><a href="" title="铝单板">铝单板</a></li>
                     <li><a href="" title="铝方通吊顶">铝方通吊顶</a></li>
                     <li><a href="" title="铝腾建材产品中心">铝腾建材产品中心</a></li>
@@ -72,30 +74,31 @@
     </nav>
 
     <main>
-        <!-- =========轮播图========= -->
-        <div id="carousel_wrap">
-            <div id="carousel_images">
-                <!-- 前后分别加上一张图片，方便无缝过渡显示。可以使用JS DOM增加节点操作省去该步骤 -->
-                <img src="image/carousel/3.jpg">
-                <img src="image/carousel/1.jpg">
-                <img src="image/carousel/2.jpg">
-                <img src="image/carousel/3.jpg">
-                <img src="image/carousel/1.jpg">
-            </div>
-            <span class="arrow left-arrow">&lt;</span>
-            <span class="arrow right-arrow">&gt;</span>
-            <div id="dots">
-                <!-- 使用小点标记实际多少张图片，要添加图片时需要修改carousel_images和此处 -->
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </div>
-        <!-- =========END轮播图========= -->
-        <div id="main_item">
-            <h1>产品区域</h1>
-        </div>
+        <div id="content">
+            <h1 style="color: black; text-align: center;"><span style="color:red">荣誉</span> 证书</h1>
+            <h3 style="color: grey; text-align: center;">CERTIFICATE OF HONOR</h3>
+            <img src="image/honor/honor1.jpg" class="honor_left1" onclick="showShadow(this)" />
+            <span class="honor_text1">中国著名品牌</span>
+            <img src="image/honor/honor2.jpg" class="honor_right1" onclick="showShadow(this)" />
+            <span class="honor_text2">中国工程建设推荐产品</span>
+            <img src="image/honor/honor3.jpg" class="honor_left2" onclick="showShadow(this)" />
+            <span class="honor_text3">中国绿色环保产品</span>
+            <img src="image/honor/honor4.jpg" class="honor_right2" onclick="showShadow(this)" />
+            <span class="honor_text4">中国工程采购指定产品</span>
+            <img src="image/honor/honor5.jpg" class="honor_left3" onclick="showShadow(this)" />
+            <span class="honor_text5">质量\信誉\服务企业</span>
+            <img src="image/honor/honor6.jpg" class="honor_right3" onclick="showShadow(this)" />
+            <span class="honor_text6">中国建材行业百强企业</span>
 
+            <h1 style="color: black; text-align: center; position: relative; top: 930px;"><span style="color:red">认证</span> 证书</h1>
+            <h3 style="color: grey; text-align: center; position: relative; top: 930px;">CERTIFICATION CERTIFICATE</h3>
+            <img src="image/honor/certification1.jpg" style="width: 200px; position: relative; top: 930px; left: 100px;" onclick="showShadow(this)" />
+            <img src="image/honor/certification2.jpg" style="width: 200px; position: relative; top: 930px;
+                left: 300px;" onclick="showShadow(this)" />
+            <span style="position: absolute; top: 1505px; left: 200px;">IS09001认证</span>
+            <span style="position: absolute; top: 1505px; left: 600px;">氟碳检验报告</span>
+
+        </div>
     </main>
 
     <footer>
@@ -104,7 +107,7 @@
                 <a href="#"><img src="./image/logo.png" alt="铝腾logo"></a>
             </div>
             <div id="footer_links">
-                <a href="">铝腾建材首页</a>
+                <a href="index.html">铝腾建材首页</a>
                 <span>|</span>
                 <a href="">铝单板</a>
                 <span>|</span>
@@ -116,7 +119,7 @@
                 <span>|</span>
                 <a href="">客户见证</a>
                 <span>|</span>
-                <a href="">荣誉资质</a>
+                <a href="honor.html">荣誉资质</a>
                 <span>|</span>
                 <a href="">新闻动态</a>
                 <span></span>  
@@ -130,4 +133,34 @@
         </div>
     </footer>
 </body>
+
+<script type="text/javascript">
+    function showShadow(obj) {
+        var shadow = document.getElementById("shadow");
+        shadow.style.width = "" + document.documentElement.scrollWidth + "px";
+       
+        if(document.documentElement.clientHeight>document.documentElement.scrollHeight)
+            shadow.style.height = "" + document.documentElement.clientHeight + "px";
+        else
+            shadow.style.height = "" + document.documentElement.scrollHeight + "px";
+        shadow.style.display = "block";
+
+        var shadowpic = document.getElementById("shadowpic");
+        var source = obj.getAttribute("src");
+        shadowpic.setAttribute('src', source);
+        shadowpic.style.display = "block";
+
+        var shadowpic = document.getElementById("shadowClose");
+        shadowClose.style.display = "block";
+    }
+
+    function hideShadow() {
+        var shadow = document.getElementById("shadow");
+        shadow.style.display = "none";
+        var shadowClose = document.getElementById("shadowClose");
+        shadowClose.style.display = "none";
+        var shadowpic = document.getElementById("shadowpic");
+        shadowpic.style.display = "none";
+    }
+</script>
 </html>
