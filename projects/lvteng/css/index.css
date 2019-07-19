@@ -3,10 +3,12 @@ body {
     /* background-color: lightgray; */
     min-width: 1500px;
     /* TODO: 此处暴力使用截图背景，不同显示器下可能会出现错位现象。 */
+    overflow-y: scroll;
+    background: url(../image/bg.jpg) repeat;
 }
 
 nav #nav_header {
-    background: url("../image/navbar_lvteng2.png") no-repeat;
+    background: url("../image/navbar_lvteng2.png") no-repeat center;
     background-size: contain;
     /* outline: 1px solid black; */
 }
@@ -185,4 +187,152 @@ nav #search_border a {
     background-color: rgb(204, 51, 51);
     right: -7.5px;
     top: 4px;
+}
+
+
+/* ==========轮播图样式表========== */
+
+main #carousel_wrap {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    /* 轮播图宽度 */
+    overflow: hidden;
+}
+
+main #carousel_wrap #carousel_images {
+    position: absolute;
+    border: 0;
+    outline: none;
+    white-space: nowrap;
+    /* 将图片一行排列 */
+    width: 100%;
+    font-size: 0;
+    /* 清除white-space间隙 */
+    margin: 0px;
+}
+
+main #carousel_wrap #carousel_images img {
+    width: 100%;
+}
+
+main #carousel_wrap .arrow {
+    position: absolute;
+    font-weight: bold;
+    font-size: 50px;
+    color: lightgray;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+main #carousel_wrap .arrow:hover {
+    opacity: 0.5;
+}
+
+main #carousel_wrap .left-arrow {
+    left: 20px;
+}
+
+main #carousel_wrap .right-arrow {
+    right: 20px;
+}
+
+main #carousel_wrap #dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+main #carousel_wrap .dot {
+    background: linear-gradient(to bottom, white, gray);
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 4px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+main #carousel_wrap .active {
+    background: linear-gradient(to bottom, rgb(228, 29, 29), rgb(148, 19, 19));
+    opacity: 1;
+}
+
+.transition {
+    transition-property: left;
+    transition-duration: 1s;
+}
+
+/* ==========END轮播图样式表========== */
+
+#main_item {
+    width: 980px;
+    margin: 0 auto;
+    height: 200px;
+}
+
+
+footer {
+    margin-top: 20px;
+}
+
+footer #footer_wrapper {
+    padding-bottom: 40px;
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+
+footer #footer_wrapper:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#footer_logo {
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+#footer_links {
+    float: right;
+    margin-right: 70px;
+}
+
+#footer_links span {
+    font-size: 12px;
+    color: rgb(204, 51, 51);
+}
+
+#footer_links a {
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+    padding: 0 10px;
+    display: inline-block;
+}
+
+#footer_links a:hover {
+    text-decoration: underline;
+}
+
+#footer_info {
+    margin-top: 30px;
+}
+
+#footer_info p {
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+#footer_xrcode {
+    position: absolute;
+    right: 80px;
+    bottom: 40px;
 }
