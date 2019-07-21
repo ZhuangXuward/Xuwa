@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>广东铝腾建材科技有限公司</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/index.css">
     <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript" src="js/products.js"></script>
 </head>
 <body>
     <nav>
@@ -36,8 +38,8 @@
         <div id="nav_bar">
             <div id="bar_wrapper">
                 <ul>
-                    <li><a href="index.html title="铝腾建材首页">铝腾建材首页</a></li>
-                    <li><a href="" title="铝单板">铝单板</a></li>
+                    <li><a href="index.html" title="铝腾建材首页" style="background: linear-gradient(to bottom, white, lightgray); color: black">铝腾建材首页</a></li>
+                    <li><a href="products/outsideAl.html" title="铝单板">铝单板</a></li>
                     <li><a href="" title="铝方通吊顶">铝方通吊顶</a></li>
                     <li><a href="" title="铝腾建材产品中心">铝腾建材产品中心</a></li>
                     <li><a href="" title="铝腾建材工程案例">铝腾建材工程案例</a></li>
@@ -72,7 +74,7 @@
     </nav>
 
     <main>
-        <!-- =========轮播图========= -->
+        <!-- ==================轮播图================== -->
         <div id="carousel_wrap">
             <div id="carousel_images">
                 <!-- 前后分别加上一张图片，方便无缝过渡显示。可以使用JS DOM增加节点操作省去该步骤 -->
@@ -91,11 +93,344 @@
                 <span class="dot"></span>
             </div>
         </div>
-        <!-- =========END轮播图========= -->
-        <div id="main_item">
-            <h1>产品区域</h1>
-        </div>
+        <!-- ==================END轮播图================== -->
 
+        <!-- ==================铝腾建材产品中心================== -->
+        <div id="products_center">
+            <div id="products_wrapper">
+                <div id="products_list">
+                    <div id="products_list_header">
+                        <table cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td rowspan="2"><span id="P1">P</span></td>
+                                <td><span id="P2">铝腾建材产品中心</span></td>
+                            </tr>
+                            <tr>
+                                <td><span id="P3">roducts</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="products_list_show">
+                        <div id="products_list_show_left">
+                            <ul>
+                                <li class="products_list_show_mid_1"><a href="">户外铝单板系列</a></li>
+                                <li class="products_list_show_mid_2"><a href="">铝蜂窝板系列</a></li>
+                                <li class="products_list_show_mid_3"><a href="">铝扣板天花系列</a></li>
+                                <li class="products_list_show_mid_4"><a href="">铝格栅天花系列</a></li>
+                                <li class="products_list_show_mid_5"><a href="">表面喷涂工艺</a></li>
+                            </ul>
+                        </div>
+                        <div id="products_list_show_right">
+                            <ul>
+                                <li class="products_list_show_mid_6"><a href="">室内铝单板系列</a></li>
+                                <li class="products_list_show_mid_7"><a href="">铝方通系列</a></li>
+                                <li class="products_list_show_mid_8"><a href="">铝挂片天花系列</a></li>
+                                <li class="products_list_show_mid_9"><a href="">产品安装配件</a></li>
+                            </ul>
+                        </div>
+                        <div id="products_list_show_mid">
+                            <table class="products_list_show_mid_1" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">雕花楼空铝</a></td>
+                                    <td><a href="">弧形铝单板</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">氟碳铝单板</a></td>
+                                    <td><a href="">铝单板幕墙</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">木纹铝单板</a></td>
+                                    <td><a href="">造型铝单板</a></td>
+                                </tr><tr>
+                                    <td><a href="">木纹铝窗花</a></td>
+                                    <td><a href="">铝合金花格</a></td>
+                                </tr><tr>
+                                    <td><a href="">包柱铝蜂窝</a></td>
+                                    <td><a href="">冲孔铝单板</a></td>
+                                </tr>
+                            </table>
+                            <table class="products_list_show_mid_2" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">冲孔铝蜂窝</a></td>
+                                    <td><a href="">冲孔瓦楞板</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">氟碳铝蜂窝</a></td>
+                                    <td><a href="">勾搭式瓦楞</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">竹铝蜂窝板</a></td>
+                                    <td><a href=""></a></td>
+                                </tr>
+                            </table>
+                            <table class="products_list_show_mid_3" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">R型防风铝</a></td>
+                                    <td><a href="">S型铝条扣</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">T型铺放式</a></td>
+                                    <td><a href="">方形铝扣板</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">H型勾搭式</a></td>
+                                    <td><a href="">跌型明骨铝</a></td>
+                                </tr>
+                            </table>
+                            <table class="products_list_show_mid_4" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">ITEM4</a></td>
+                                    <td><a href="">ITEM4</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM4</a></td>
+                                    <td><a href="">ITEM4</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM4</a></td>
+                                    <td><a href="">ITEM4</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM4</a></td>
+                                    <td><a href="">ITEM4</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM4</a></td>
+                                    <td><a href="">ITEM4</a></td>
+                                </tr>
+                            </table>
+                            <table class="products_list_show_mid_5" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">ITEM5</a></td>
+                                    <td><a href="">ITEM5</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM5</a></td>
+                                    <td><a href="">ITEM5</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM5</a></td>
+                                    <td><a href="">ITEM5</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM5</a></td>
+                                    <td><a href="">ITEM5</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM5</a></td>
+                                    <td><a href="">ITEM5</a></td>
+                                </tr>
+                            </table>
+                            <table class="products_list_show_mid_6" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">ITEM6</a></td>
+                                    <td><a href="">ITEM6</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM6</a></td>
+                                    <td><a href="">ITEM6</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM6</a></td>
+                                    <td><a href="">ITEM6</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM6</a></td>
+                                    <td><a href="">ITEM6</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM6</a></td>
+                                    <td><a href="">ITEM6</a></td>
+                                </tr>
+                            </table>
+                            <table class="products_list_show_mid_7" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">ITEM7</a></td>
+                                    <td><a href="">ITEM7</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM7</a></td>
+                                    <td><a href="">ITEM7</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM7</a></td>
+                                    <td><a href="">ITEM7</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM7</a></td>
+                                    <td><a href="">ITEM7</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM7</a></td>
+                                    <td><a href="">ITEM7</a></td>
+                                </tr>
+                            </table>
+                            <table class="products_list_show_mid_8" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">ITEM8</a></td>
+                                    <td><a href="">ITEM8</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM8</a></td>
+                                    <td><a href="">ITEM8</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM8</a></td>
+                                    <td><a href="">ITEM8</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM8</a></td>
+                                    <td><a href="">ITEM8</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM8</a></td>
+                                    <td><a href="">ITEM8</a></td>
+                                </tr>
+                            </table>
+                            <table class="products_list_show_mid_9" cellpadding="6px">
+                                <tr>
+                                    <td><a href="">ITEM9</a></td>
+                                    <td><a href="">ITEM9</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM9</a></td>
+                                    <td><a href="">ITEM9</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM9</a></td>
+                                    <td><a href="">ITEM9</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM9</a></td>
+                                    <td><a href="">ITEM9</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">ITEM9</a></td>
+                                    <td><a href="">ITEM9</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="products_show">
+                    <div id="products_show_inner">
+                        <a href=""><img src="./image/news/news5img.png" width="200px"></a>
+                        <div id="products_show_inner_word">
+                            <span>
+                                专业生产铝合金天花吊顶、幕墙、金蜂窝板及窗花等金属建筑装饰材料。专业研发，设计，生产，销售，安装指导及技术服务于一体。
+                            </span>
+                        </div>
+                        <div id="products_show_inner_detail">
+                            <a href="">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ==================END铝腾建材产品中心================== -->
+        
+        <!-- ==================铝腾建材热门产品================== -->
+        <div id="products_hot">
+            <div id="products_hot_wrapper">
+                <table cellspacing="0" cellpadding="5px">
+                    <tr>
+                        <td rowspan="2"><span id="P1">01</span></td>
+                        <td><span id="P2">铝腾建材热门产品</span></td>
+                    </tr>
+                    <tr>
+                        <td><span id="P3">EIGHT HOT PRODUCTS AND BUILDING MATERIALS</span></td>
+                    </tr>
+                </table>
+                <div id="products_hot_item">
+                    <div class="products_hot_items">
+                        <a href=""><div class="products_hot_items_img" style="background-image: url(./image/products/wave.jpg)"></div></a>
+                        <div class="products_hot_items_desc"><a href="">波浪造型铝方通</a></div>
+                        <div class="products_hot_items_details"><a href="">查看详情</a></div>
+                    </div>
+                    <div class="products_hot_items">
+                        <a href=""><div class="products_hot_items_img" style="background-image: url(./image/products/rad.jpg)"></div></a>
+                        <div class="products_hot_items_desc"><a href="">弧形铝方通吊顶</a></div>
+                        <div class="products_hot_items_details"><a href="">查看详情</a></div>
+                    </div>
+                    <div class="products_hot_items">
+                        <a href=""><div class="products_hot_items_img" style="background-image: url(./image/products/pose.jpg)"></div></a>
+                        <div class="products_hot_items_desc"><a href="">造型铝方通</a></div>
+                        <div class="products_hot_items_details"><a href="">查看详情</a></div>
+                    </div>
+                    <div class="products_hot_items">
+                        <a href=""><div class="products_hot_items_img" style="background-image: url(./image/products/wood.jpg)"></div></a>
+                        <div class="products_hot_items_desc"><a href="">木纹铝方通</a></div>
+                        <div class="products_hot_items_details"><a href="">查看详情</a></div>
+                    </div>
+                    <div class="products_hot_items">
+                        <a href=""><div class="products_hot_items_img" style="background-image: url(./image/products/outside.jpg)"></div></a>
+                        <div class="products_hot_items_desc"><a href="">铝单板幕墙</a></div>
+                        <div class="products_hot_items_details"><a href="">查看详情</a></div>
+                    </div>
+                    <div class="products_hot_items">
+                        <a href=""><div class="products_hot_items_img" style="background-image: url(./image/products/wood2.jpg)"></div></a>
+                        <div class="products_hot_items_desc"><a href="">木纹铝单板</a></div>
+                        <div class="products_hot_items_details"><a href="">查看详情</a></div>
+                    </div>
+                    <div class="products_hot_items">
+                        <a href=""><div class="products_hot_items_img" style="background-image: url(./image/products/pose2.jpg)"></div></a>
+                        <div class="products_hot_items_desc"><a href="">造型铝单板</a></div>
+                        <div class="products_hot_items_details"><a href="">查看详情</a></div>
+                    </div>
+                    <div class="products_hot_items">
+                        <a href=""><div class="products_hot_items_img" style="background-image: url(./image/products/wood3.jpg)"></div></a>
+                        <div class="products_hot_items_desc"><a href="">木纹铝窗花</a></div>
+                        <div class="products_hot_items_details"><a href="">查看详情</a></div>
+                    </div>
+                </div>
+                <div id="products_project_exam">
+                    <h1>铝腾建材工程案例</h1> 
+                    <span>用系统打造专业</span>
+                    <div id="products_project_exam_inner">
+                        <ul>
+                            <li><a href="" class="products_project_exam_item">购物中心</a></li>
+                            <li><a href="" class="products_project_exam_item">医院教育</a></li>
+                            <li><a href="" class="products_project_exam_item">汽车4S店及展览馆</a></li>
+                            <li><a href="" class="products_project_exam_item">政府及企业办公楼</a></li>
+                            <li><a href="" class="products_project_exam_item">酒店及其他工程</a></li>
+                        </ul>
+                        <div id="products_project_exam_block">
+                            <div class="products_project_exam_item" style="display: none;">
+                                <div class="products_project_img" style="background-image: url(./image/products/shoppingmall.jpg)"></div>
+                                <div class="products_project_word">
+                                    ·工程详情 地点：马鞍山 所属行业：商业 应用面积：30000平方米
+                                </div>
+                            </div>
+                            <div class="products_project_exam_item" style="display: none;">
+                                <div class="products_project_img" style="background-image: url(./image/products/hospital.jpg)"></div>
+                                <div class="products_project_word">
+                                    ·工程详情 地点：马鞍山 所属行业：商业 应用面积：30000平方米
+                                </div>
+                            </div>
+                            <div class="products_project_exam_item" style="display: none;">
+                                <div class="products_project_img" style="background-image: url(./image/products/hospital.jpg)"></div>
+                                <div class="products_project_word">
+                                    ·工程详情 地点：马鞍山 所属行业：商业 应用面积：30000平方米
+                                </div>
+                            </div>
+                            <div class="products_project_exam_item" style="display: none;">
+                                <div class="products_project_img" style="background-image: url(./image/products/gover.jpg)"></div>
+                                <div class="products_project_word">
+                                    ·工程详情 地点：马鞍山 所属行业：商业 应用面积：30000平方米
+                                </div>
+                            </div>
+                            <div class="products_project_exam_item" style="display: none;">
+                                <div class="products_project_img" style="background-image: url(./image/products/hotel.jpg)"></div>
+                                <div class="products_project_word">
+                                    ·工程详情 地点：马鞍山 所属行业：商业 应用面积：30000平方米
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ==================END铝腾建材热门产品================== -->
     </main>
 
     <footer>
