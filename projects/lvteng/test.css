@@ -1,0 +1,68 @@
+#carousel_div_outter {
+    width: 880px;
+    margin: 0 auto;
+    position: relative;
+}
+#carousel_div_wrapper {
+    width: 800px;
+    /* height: 200px; */
+    outline: 1px solid black;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#carousel_div_inner {
+    white-space: nowrap;
+    position: relative;
+    transition-property: left, right;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    outline: 1px solid green;
+}
+
+.carousel_div_items {
+    margin: 10px;
+    display: inline-block;
+    width: 160px;
+    height: 180px;
+    outline: 1px solid red;
+}
+
+.items_img {
+    width: 160px;
+    height: 150px;
+    background: gray;
+}
+
+.arrow {
+    position: absolute;
+    font-size: 30px;
+    width: 30px;
+    line-height: 50px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-family: 微软雅黑;
+    background: black;
+    border-radius: 8px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    background: linear-gradient(to bottom, gray, black);
+    opacity: 1;
+}
+
+#pre_click {
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#next_click {
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+}

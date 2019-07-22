@@ -26,21 +26,24 @@ $(document).ready(function() {
     // ================铝腾建材工程案例展示页=================
     var projLength = $("li>a.products_project_exam_item").length;//工程案例分类总数
     var proj = document.querySelectorAll("li>a.products_project_exam_item");
+    console.log(proj[0]);
     var proj_content = document.querySelectorAll("div.products_project_exam_item");
     for (let i = 0; i < projLength; ++ i) {
-        proj[i].onmouseover = function () {
+        proj[i].onmouseover = function() {
             proj_content[i].style.display = "block";
-            // proj[i].classList.add("products_project_exam_inner_active");
+            proj[i].style.background = "white";
+            proj[i].style.color = "rgb(206, 47, 54)";
             for (let j = 0; j < projLength; ++ j) {
                 if (j == i) {
                     continue;
                 }
                 else {
+                    proj[j].style.background = "linear-gradient(to bottom, rgb(206, 47, 54), rgb(163, 29, 30))";
+                    proj[j].style.color = "white";
                     proj_content[j].style.display = "none";
                 }
             }
         }
     }
-    
     // ================END铝腾建材工程案例展示页=================
 }); 
