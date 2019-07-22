@@ -5,6 +5,7 @@ body {
     /* TODO: 此处暴力使用截图背景，不同显示器下可能会出现错位现象。 */
     overflow-y: scroll;
     background: url(../image/bg.jpg) repeat;
+    font-family: 微软雅黑;
 }
 
 nav #nav_header {
@@ -657,7 +658,7 @@ main #carousel_wrap .active {
 
 #products_project_exam_block {
     width: 900px;
-    height: 400px;
+    height: 200px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 30px 30px 5px 5px;
@@ -670,11 +671,28 @@ main #carousel_wrap .active {
     background-size: cover;
     border: 1px solid lightgray;
     display: inline-block;
-    margin-right: 40px;
 }
 
 .products_project_word {
     display: inline-block;
+    font-size: 14px;
+    color: black;
+    line-height: 25px;
+    position: absolute;
+    left: 270px;
+}
+
+.products_project_word h1 {
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 20px;
+    font-family: 微软雅黑;
+}
+
+span.word_header {
+    font-size: 5px;
+    color: black !important;
 }
 
 div.products_project_exam_item {
@@ -685,15 +703,24 @@ div.products_project_exam_item {
     border-bottom: 1px dashed gray;
 }
 
-.products_project_img {
-    position: absolute;
-    left: 50px;
+.products_project_word a {
+    display: inline-block;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    font-size: 13px;
+    padding: 0 5px;
+    float: right;
+    color: gray;
+    font-family: 微软雅黑;
+    text-decoration: none;
+    background: linear-gradient(to bottom, white, lightgray);
 }
 
-.products_project_word {
+.products_project_img {
     position: absolute;
-    left: 300px;
+    left: 30px;
 }
+
 /* ====================END 01铝腾建材热门产品==================== */
 
 /* ====================02优质产品==================== */
@@ -731,8 +758,288 @@ div.products_project_exam_item {
     position: relative;
     bottom: 5px;
 }
+
+#products_whychoose {
+    width: 400px;
+    margin: 10px auto;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(202, 45, 52), rgb(154, 18, 18));
+    border-radius: 50px;
+    padding: 10px;
+}
+
+#products_whychoose p {
+    color: white;
+    font-family: 微软雅黑;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+#products_whychoose #why1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
 /* ====================END 02优质产品==================== */
 
+#info {
+    background: linear-gradient(to bottom, white, lightgray);
+    box-shadow: 0 -10px 20px #555;
+    z-index: 2;
+    position: relative;
+    top: -5px;
+    border-top: 30px solid rgb(157, 17, 18);
+    border-bottom: 30px solid rgb(157, 17, 18);
+}
+
+/* ====================走进铝腾==================== */
+#company {
+    /* border-top: 20px solid rgb(157, 17, 18); */
+}
+
+#company_intro_wrapper {
+    width: 980px;
+    margin: 0 auto;
+}
+
+#company_intro {
+    border-bottom: 1px dashed gray;
+}
+
+#company_intro_wrapper table td {
+    margin: 100px;
+}
+
+#company_intro_wrapper table #P1 {
+    font-size: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(204, 51, 51);
+    border-radius: 70%;
+}
+
+#company_intro_wrapper table #P2 {
+    font-size: 23px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    color: #555;
+    position: relative;
+    top: 10px;
+}
+
+#company_intro_wrapper table #P3 {
+    font-size: 12px;
+    font-family: 微软雅黑;
+    color: gray;
+    position: relative;
+    bottom: 8px;
+}
+
+#company_header {
+    color: rgb(207, 65, 51);
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#company_cont {
+    color: #555;
+    font-size: 13px;
+    line-height: 25px;
+    padding-bottom: 10px;
+}
+
+#company_cont p {
+    text-indent: 2em;
+}
+
+#company_cont:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+#company_cont a {
+    display: inline-block;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    font-size: 13px;
+    padding: 0 6px;
+    float: right;
+    color: rgb(207, 65, 51);
+    font-family: 微软雅黑;
+    text-decoration: none;
+    background: linear-gradient(to bottom, white, lightgray);
+}
+/* ====================END 走进铝腾==================== */
+
+/* ====================荣誉见证==================== */
+#honor {
+    /* border-top: 20px solid rgb(157, 17, 18); */
+}
+
+#honor_intro_wrapper {
+    width: 980px;
+    margin: 0 auto;
+}
+
+#honor_intro {
+    border-bottom: 1px dashed gray;
+}
+
+#honor_intro_wrapper table td {
+    margin: 100px;
+}
+
+#honor_intro_wrapper table #P1 {
+    font-size: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(204, 51, 51);
+    border-radius: 70%;
+}
+
+#honor_intro_wrapper table #P2 {
+    font-size: 23px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    color: #555;
+    position: relative;
+    top: 10px;
+}
+
+#honor_intro_wrapper table #P3 {
+    font-size: 12px;
+    font-family: 微软雅黑;
+    color: gray;
+    position: relative;
+    bottom: 8px;
+}
+
+#honor_header {
+    color: rgb(207, 65, 51);
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#honor_cont {
+    color: #555;
+    font-size: 13px;
+    line-height: 25px;
+    padding-bottom: 10px;
+}
+
+#honor_cont p {
+    text-indent: 2em;
+}
+
+#honor_cont:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+#honor_cont a {
+    display: inline-block;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    font-size: 13px;
+    padding: 0 6px;
+    float: right;
+    color: rgb(207, 65, 51);
+    font-family: 微软雅黑;
+    text-decoration: none;
+    background: linear-gradient(to bottom, white, lightgray);
+}
+
+#carousel_div_outter {
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#carousel_div_wrapper {
+    width: 980px;
+    /* height: 200px; */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#carousel_div_inner {
+    white-space: nowrap;
+    position: relative;
+    /* transition-property: left, right;
+    transition-duration: 3s;
+    transition-timing-function: linear; */
+}
+
+.carousel_div_inner_transition {
+    transition-property: left, right;
+    transition-duration: 3s;
+    transition-timing-function: linear;
+}
+
+.carousel_div_items {
+    margin: 10px;
+    display: inline-block;
+    width: 160px;
+    height: 180px;
+    text-align: center;
+}
+
+.items_img {
+    width: 160px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.honor_arrow {
+    position: absolute;
+    font-size: 30px;
+    width: 30px;
+    line-height: 50px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-family: 微软雅黑;
+    background: black;
+    border-radius: 8px;
+    opacity: 0.5;
+    cursor: pointer;
+    display: none;
+}
+
+.honor_arrow:hover {
+    background: linear-gradient(to bottom, gray, black);
+    opacity: 1;
+}
+
+#pre_click {
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#next_click {
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.items_desc {
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+}
+
+a.items_desc:hover {
+    text-decoration: underline;
+}
+
+
+/* ====================END 荣誉见证==================== */
 
 #main_item {
     width: 980px;

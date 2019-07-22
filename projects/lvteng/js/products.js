@@ -28,6 +28,9 @@ $(document).ready(function() {
     var proj = document.querySelectorAll("li>a.products_project_exam_item");
     console.log(proj[0]);
     var proj_content = document.querySelectorAll("div.products_project_exam_item");
+    proj_content[0].style.display = "block";
+    proj[0].style.background = "white";
+    proj[0].style.color = "rgb(206, 47, 54)";
     for (let i = 0; i < projLength; ++ i) {
         proj[i].onmouseover = function() {
             proj_content[i].style.display = "block";
@@ -46,4 +49,22 @@ $(document).ready(function() {
         }
     }
     // ================END铝腾建材工程案例展示页=================
+    // ================荣誉见证=================
+    var honor_timmer = setInterval(nextShow, 3000);
+
+    function nextShow() {
+        var carouselDiv = document.getElementById("carousel_div_inner");
+        carouselDiv.classList.add("carousel_div_inner_transition");
+        var originLeft = carouselDiv.style.left;
+        if (parseInt(originLeft) < -2500) {
+            carouselDiv.classList.remove("carousel_div_inner_transition");
+            var honor_newLeft = 0;
+            carouselDiv.style.left = 0 + "px";
+        } else {
+            var honor_newLeft = parseInt(originLeft) - 200;
+            carouselDiv.style.left = honor_newLeft + "px";
+        }
+        carouselDiv.classList.add("carousel_div_inner_transition");
+    }
+    // ================END荣誉见证=================
 }); 

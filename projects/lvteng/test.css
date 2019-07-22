@@ -35,7 +35,7 @@
     background: gray;
 }
 
-.arrow {
+.honor_arrow {
     position: absolute;
     font-size: 30px;
     width: 30px;
@@ -48,9 +48,10 @@
     border-radius: 8px;
     opacity: 0.5;
     cursor: pointer;
+    display: none;
 }
 
-.arrow:hover {
+.honor_arrow:hover {
     background: linear-gradient(to bottom, gray, black);
     opacity: 1;
 }

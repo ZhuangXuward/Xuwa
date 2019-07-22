@@ -1,53 +1,26 @@
 $(document).ready(function() {
-    var timmer = setInterval(nextShow, 1000);
-    var time = 1;
-    function preShow() {
-        var carouselDiv = document.getElementById("carousel_div_inner");
-        var originLeft = carouselDiv.style.left;
-        if (parseInt(originLeft) >= 0) {
-            
-        }
-        else {
-            var newLeft = parseInt(originLeft) + 200;
-            carouselDiv.style.left = newLeft + "px";
-            console.log(carouselDiv.style.left);
-        }
-        
-    }
+    var honor_timmer = setInterval(nextShow, 1000);
     
     function nextShow() {
         var carouselDiv = document.getElementById("carousel_div_inner");
         var originLeft = carouselDiv.style.left;
         if (parseInt(originLeft) < -1500) {
-            
+            var honor_newLeft = 0;
+            carouselDiv.style.left = 0 + "px";
         }
         else {
-            var newLeft = parseInt(originLeft) - 200;
-            carouselDiv.style.left = newLeft + "px";
-            console.log(carouselDiv.style.left);
-            
+            var honor_newLeft = parseInt(originLeft) - 200;
+            carouselDiv.style.left = honor_newLeft + "px";
         }
     }
     
     $("#carousel_div_inner").mouseover(function() {
-        clearInterval(timmer);
-        time -= 1;
-        console.log(time);
+        clearInterval(honor_timmer);
     });
-    
-    $("#pre_click").click(function() {
-        clearInterval(timmer);
-        time-=1;
-        preShow();
-        console.log(time);
+
+    $("#carousel_div_inner").mouseleave(function () {
+        honor_timmer = setInterval(nextShow, 1000);
     });
-    
-    $("#next_click").click(function () {
-        clearInterval(timmer);
-        setInterval(nextShow, 1000);
-        console.log(time);
-    });
-    
 });
 
 
