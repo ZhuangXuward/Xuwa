@@ -785,12 +785,13 @@ div.products_project_exam_item {
 
 #info {
     background: linear-gradient(to bottom, white, lightgray);
-    box-shadow: 0 -10px 20px #555;
+    box-shadow: 0 -10px 20px #555, 0 10px 20px #555;
     z-index: 2;
     position: relative;
     top: -5px;
     border-top: 30px solid rgb(157, 17, 18);
     border-bottom: 30px solid rgb(157, 17, 18);
+    margin-bottom: 30px;
 }
 
 /* ====================走进铝腾==================== */
