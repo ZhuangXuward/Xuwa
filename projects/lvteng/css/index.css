@@ -138,6 +138,7 @@ nav #nav_bar ul li a:hover {
 
 nav #nav_search {
     background-color: white;
+    border-bottom: 1px solid rgb(217, 217, 217);
 }
 
 nav #search_wrapper {

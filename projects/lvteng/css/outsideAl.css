@@ -137,6 +137,7 @@ nav #nav_bar ul li a:hover {
 
 nav #nav_search {
     background-color: white;
+    border-bottom: 1px solid rgb(217, 217, 217);
 }
 
 nav #search_wrapper {
@@ -226,7 +227,7 @@ nav #search_border a {
     border-bottom: 3px solid rgb(139, 0, 2);
     padding: 0;
     height: 400px;
-    background: white;
+    background: rgb(251, 247, 247);
 }
 
 #products_sidebar ul a {
@@ -346,8 +347,7 @@ div.products_items .img {
     width: 220px;
     height: 180px;
     outline: 1px solid lightgray;
-    background-size: cover;
-    /* background-position: center center; */
+    background-size: cover!important;
 }
 
 .products_items .desc {
