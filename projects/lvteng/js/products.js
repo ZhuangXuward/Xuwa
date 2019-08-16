@@ -67,4 +67,5 @@ $(document).ready(function() {
         carouselDiv.classList.add("carousel_div_inner_transition");
     }
     // ================END荣誉见证=================
+
 }); 
